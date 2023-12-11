@@ -1,0 +1,140 @@
+object FormMain: TFormMain
+  Left = 1198
+  Height = 417
+  Top = 31
+  Width = 1108
+  ClientHeight = 417
+  ClientWidth = 1108
+  object panelTop: TPanel
+    Left = 0
+    Height = 34
+    Top = 0
+    Width = 1108
+    Align = alTop
+    BevelColor = clNone
+    BevelOuter = bvNone
+    ClientHeight = 34
+    ClientWidth = 1108
+    Color = 14666636
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Name = 'Font Awesome 6 Free Solid'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 0
+    object panelBotoesBarra: TPanel
+      Left = 982
+      Height = 34
+      Top = 0
+      Width = 126
+      Align = alRight
+      AutoSize = True
+      BevelOuter = bvNone
+      ClientHeight = 34
+      ClientWidth = 126
+      TabOrder = 0
+      object btnMinimizar: TSpeedButton
+        Left = 0
+        Height = 34
+        Top = 0
+        Width = 42
+        Align = alRight
+        Caption = 'window-minimize'
+        Flat = True
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -16
+        Font.Name = 'Font Awesome 6 Free Solid'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object btnMaximizar: TSpeedButton
+        Left = 42
+        Height = 34
+        Top = 0
+        Width = 42
+        Align = alRight
+        Caption = 'expand'
+        Flat = True
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -16
+        Font.Name = 'Font Awesome 6 Free Solid'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object btnFechar: TSpeedButton
+        Left = 84
+        Height = 34
+        Top = 0
+        Width = 42
+        Align = alRight
+        Caption = 'close'
+        Flat = True
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -16
+        Font.Name = 'Font Awesome 6 Free Solid'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+    end
+  end
+  object panelConteudo: TPanel
+    Left = 0
+    Height = 349
+    Top = 34
+    Width = 1108
+    Align = alClient
+    BevelOuter = bvNone
+    Color = clWhite
+    ParentColor = False
+    TabOrder = 1
+  end
+  object panelBottom: TPanel
+    Left = 0
+    Height = 34
+    Top = 383
+    Width = 1108
+    Align = alBottom
+    BevelColor = clNone
+    BevelOuter = bvNone
+    ClientHeight = 34
+    ClientWidth = 1108
+    Color = 14666636
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Name = 'Font Awesome 6 Free Solid'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 2
+    object panelBotoesBarra1: TPanel
+      Left = 1072
+      Height = 34
+      Top = 0
+      Width = 0
+      Align = alRight
+      AutoSize = True
+      BevelOuter = bvNone
+      TabOrder = 0
+    end
+    object btnConfigBanco: TSpeedButton
+      Left = 1072
+      Height = 34
+      Top = 0
+      Width = 36
+      Align = alRight
+      Caption = 'wifi'
+      Flat = True
+    end
+  end
+end

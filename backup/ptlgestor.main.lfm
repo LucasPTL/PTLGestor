@@ -1,0 +1,58 @@
+object FormMain: TFormMain
+  Left = 1198
+  Height = 417
+  Top = 31
+  Width = 1108
+  ClientHeight = 417
+  ClientWidth = 1108
+  object panelTop: TPanel
+    Left = 0
+    Height = 34
+    Top = 0
+    Width = 1108
+    Align = alTop
+    BevelColor = clNone
+    BevelOuter = bvNone
+    ClientHeight = 34
+    ClientWidth = 1108
+    Color = clWhite
+    ParentColor = False
+    TabOrder = 0
+    object panelBotoesBarra: TPanel
+      Left = 982
+      Height = 34
+      Top = 0
+      Width = 126
+      Align = alRight
+      AutoSize = True
+      BevelOuter = bvNone
+      ClientHeight = 34
+      ClientWidth = 126
+      TabOrder = 0
+      object btnMinimizar: TSpeedButton
+        Left = 0
+        Height = 34
+        Top = 0
+        Width = 42
+        Align = alRight
+        Flat = True
+      end
+      object btnMaximizar: TSpeedButton
+        Left = 42
+        Height = 34
+        Top = 0
+        Width = 42
+        Align = alRight
+        Flat = True
+      end
+      object btnFechar: TSpeedButton
+        Left = 84
+        Height = 34
+        Top = 0
+        Width = 42
+        Align = alRight
+        Flat = True
+      end
+    end
+  end
+end
