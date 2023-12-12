@@ -10,8 +10,8 @@ uses
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, zplain, zparsesql, zdbc, zcore, zcomponent, PTLGestor.main, 
-ptlgestor.dm, ptlgestor.janelacustom, unit1
+  Forms, zcomponent, PTLGestor.main,
+ptlgestor.dm, ptlgestor.configConexao
   { you can add units after this };
 
 {$R *.res}

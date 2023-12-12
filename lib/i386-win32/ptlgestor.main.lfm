@@ -144,8 +144,31 @@ object FormMain: TFormMain
       Width = 36
       Align = alRight
       Caption = 'wifi'
+      Color = clRed
       Flat = True
+      Transparent = False
       OnClick = btnConfigBancoClick
     end
+    object labelAvisoConexao: TLabel
+      Left = 0
+      Height = 34
+      Top = 0
+      Width = 1264
+      Align = alClient
+      Alignment = taCenter
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -16
+      Font.Name = 'Inter'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object timerVerificaConexao: TTimer
+    OnTimer = timerVerificaConexaoTimer
+    Left = 8
+    Top = 48
   end
 end

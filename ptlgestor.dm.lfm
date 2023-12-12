@@ -8,6 +8,9 @@ object DM: TDM
   object ZConnection: TZConnection
     ControlsCodePage = cCP_UTF8
     AutoEncodeStrings = True
+    Properties.Strings = (
+      'AutoEncodeStrings=ON'
+    )
     Port = 0
     Left = 24
     Top = 24

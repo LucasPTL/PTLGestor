@@ -26,6 +26,12 @@
     </RunParams>
     <RequiredPackages>
       <Item>
+        <PackageName Value="SynEdit"/>
+      </Item>
+      <Item>
+        <PackageName Value="FCL"/>
+      </Item>
+      <Item>
         <PackageName Value="zcomponent"/>
       </Item>
       <Item>
@@ -61,6 +67,7 @@
         <Filename Value="ptlgestor.dm.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DM"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
       </Unit>
       <Unit>
@@ -69,6 +76,14 @@
         <ComponentName Value="JanelaCustom"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
+        <Filename Value="forms\ptlgestor.configconexao.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormConfigConexao"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ptlgestor.configConexao"/>
       </Unit>
     </Units>
   </ProjectOptions>
@@ -80,7 +95,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="base"/>
+      <OtherUnitFiles Value="base;forms"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>

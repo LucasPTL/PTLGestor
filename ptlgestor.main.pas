@@ -6,13 +6,14 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, Buttons,
-  ptlgestor.janelacustom;
+  StdCtrls, ptlgestor.janelacustom, ptlgestor.configConexao, ptlgestor.dm;
 
 type
 
   { TFormMain }
 
   TFormMain = class(TForm)
+    labelAvisoConexao: TLabel;
     panelBotoesBarra1: TPanel;
     panelConteudo: TPanel;
     panelBotoesBarra: TPanel;
@@ -22,6 +23,7 @@ type
     btnFechar: TSpeedButton;
     panelBottom: TPanel;
     btnConfigBanco: TSpeedButton;
+    timerVerificaConexao: TTimer;
     procedure btnConfigBancoClick(Sender: TObject);
     procedure btnFecharClick(Sender: TObject);
     procedure btnMaximizarClick(Sender: TObject);
@@ -32,6 +34,7 @@ type
       Y: Integer);
     procedure panelTopMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure timerVerificaConexaoTimer(Sender: TObject);
   private
     FMouseDown: Boolean;
    FMousePos: TPoint;
@@ -81,8 +84,15 @@ begin
 end;
 
 procedure TFormMain.btnConfigBancoClick(Sender: TObject);
+var
+  Form: TFormConfigConexao;
 begin
-
+  try
+    Form := TFormConfigConexao.Create(Self);
+    Form.ShowModal;
+  finally
+    Form.Free;
+  end;
 end;
 
 procedure TFormMain.btnMaximizarClick(Sender: TObject);
@@ -116,6 +126,25 @@ procedure TFormMain.panelTopMouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
  FMouseDown := False;
+end;
+
+procedure TFormMain.timerVerificaConexaoTimer(Sender: TObject);
+begin
+ with timerVerificaConexao do
+ begin
+   Enabled:=False;
+   if DM.Conexao.Ping then
+   begin
+     btnConfigBanco.Color:=clGreen;
+     labelAvisoConexao.Caption:='';
+   end
+   else
+   begin
+     btnConfigBanco.Color:=clRed;
+     labelAvisoConexao.Caption:='Verificar conexão.';
+   end;
+   Enabled:=True;
+ end;
 end;
 
 end.
