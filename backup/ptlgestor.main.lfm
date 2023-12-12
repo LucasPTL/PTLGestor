@@ -1,25 +1,37 @@
 object FormMain: TFormMain
-  Left = 1198
-  Height = 417
+  Left = 0
+  Height = 600
   Top = 31
-  Width = 1108
-  ClientHeight = 417
-  ClientWidth = 1108
+  Width = 1300
+  BorderStyle = bsNone
+  ClientHeight = 600
+  ClientWidth = 1300
+  Position = poScreenCenter
   object panelTop: TPanel
     Left = 0
     Height = 34
     Top = 0
-    Width = 1108
+    Width = 1300
     Align = alTop
     BevelColor = clNone
     BevelOuter = bvNone
     ClientHeight = 34
-    ClientWidth = 1108
-    Color = clWhite
+    ClientWidth = 1300
+    Color = 14666636
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Name = 'Font Awesome 6 Free Solid'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
     ParentColor = False
+    ParentFont = False
     TabOrder = 0
+    OnMouseDown = panelTopMouseDown
+    OnMouseMove = panelTopMouseMove
+    OnMouseUp = panelTopMouseUp
     object panelBotoesBarra: TPanel
-      Left = 982
+      Left = 1174
       Height = 34
       Top = 0
       Width = 126
@@ -28,6 +40,8 @@ object FormMain: TFormMain
       BevelOuter = bvNone
       ClientHeight = 34
       ClientWidth = 126
+      Color = clWhite
+      ParentColor = False
       TabOrder = 0
       object btnMinimizar: TSpeedButton
         Left = 0
@@ -35,7 +49,16 @@ object FormMain: TFormMain
         Top = 0
         Width = 42
         Align = alRight
+        Caption = 'window-minimize'
         Flat = True
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -16
+        Font.Name = 'Font Awesome 6 Free Solid'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        OnClick = btnMinimizarClick
+        ParentFont = False
       end
       object btnMaximizar: TSpeedButton
         Left = 42
@@ -43,7 +66,16 @@ object FormMain: TFormMain
         Top = 0
         Width = 42
         Align = alRight
+        Caption = 'expand'
         Flat = True
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -16
+        Font.Name = 'Font Awesome 6 Free Solid'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        OnClick = btnMaximizarClick
+        ParentFont = False
       end
       object btnFechar: TSpeedButton
         Left = 84
@@ -51,8 +83,69 @@ object FormMain: TFormMain
         Top = 0
         Width = 42
         Align = alRight
+        Caption = 'close'
         Flat = True
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -16
+        Font.Name = 'Font Awesome 6 Free Solid'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        OnClick = btnFecharClick
+        ParentFont = False
       end
+    end
+  end
+  object panelConteudo: TPanel
+    Left = 0
+    Height = 532
+    Top = 34
+    Width = 1300
+    Align = alClient
+    BevelOuter = bvNone
+    Color = clWhite
+    ParentColor = False
+    TabOrder = 1
+  end
+  object panelBottom: TPanel
+    Left = 0
+    Height = 34
+    Top = 566
+    Width = 1300
+    Align = alBottom
+    BevelColor = clNone
+    BevelOuter = bvNone
+    ClientHeight = 34
+    ClientWidth = 1300
+    Color = 14666636
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Name = 'Font Awesome 6 Free Solid'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 2
+    object panelBotoesBarra1: TPanel
+      Left = 1264
+      Height = 34
+      Top = 0
+      Width = 0
+      Align = alRight
+      AutoSize = True
+      BevelOuter = bvNone
+      TabOrder = 0
+    end
+    object btnConfigBanco: TSpeedButton
+      Left = 1264
+      Height = 34
+      Top = 0
+      Width = 36
+      Align = alRight
+      Caption = 'wifi'
+      Flat = True
+      OnClick = btnConfigBancoClick
     end
   end
 end
