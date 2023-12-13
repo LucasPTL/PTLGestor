@@ -15,13 +15,15 @@ type
     ZConnection: TZConnection;
     procedure DataModuleCreate(Sender: TObject);
   private
-     procedure CarregarConexao;
-     procedure ConfigurarBanco;
+
 
   public
+
     Conexao:TZConnection;
     function criptografar(const key, texto: String): String;
     function descriptografar(const key, texto: String): String;
+    procedure CarregarConexao;
+    procedure ConfigurarBanco;
   end;
 
 var
@@ -80,8 +82,8 @@ begin
          LSql := 'EXECUTE BLOCK AS ';
          LSql := LSql + 'DECLARE VARIABLE gerador_existente INTEGER; ';
          LSql := LSql + 'BEGIN ';
-           LSql := LSql + 'SELECT COUNT(*) FROM RDB$GENERATORS WHERE RDB$GENERATOR_NAME = ''gen_id'' INTO ::gerador_existente; ';
-           LSql := LSql + ' IF (gerador_existente = 0) THEN EXECUTE STATEMENT ''CREATE GENERATOR gen_id''; ';
+           LSql := LSql + 'SELECT COUNT(*) FROM RDB$GENERATORS WHERE RDB$GENERATOR_NAME = ''GEN_ID'' INTO ::gerador_existente; ';
+           LSql := LSql + ' IF (gerador_existente = 0) THEN EXECUTE STATEMENT ''CREATE GENERATOR GEN_ID''; ';
          LSql := LSql + ' END';
          SQL.Add(LSql);
          ExecSQL;
@@ -91,8 +93,8 @@ begin
          LSql := LSql + 'DECLARE VARIABLE tabela_existente INTEGER; ';
          LSql := LSql + 'DECLARE VARIABLE indice_existente INTEGER; ';
          LSql := LSql + 'BEGIN ';
-           LSql := LSql + 'SELECT COUNT(*) FROM RDB$RELATIONS WHERE RDB$RELATION_NAME = ''tarefas'' INTO ::tabela_existente; ';
-           LSql := LSql + 'SELECT COUNT(*) FROM RDB$INDICES WHERE RDB$INDEX_NAME = ''ind_id'' INTO ::indice_existente; ';
+           LSql := LSql + 'SELECT COUNT(*) FROM RDB$RELATIONS WHERE RDB$RELATION_NAME = ''TAREFAS'' INTO ::tabela_existente; ';
+           LSql := LSql + 'SELECT COUNT(*) FROM RDB$INDICES WHERE RDB$INDEX_NAME = ''IND_ID'' INTO ::indice_existente; ';
            LSql := LSql + ' IF (tabela_existente = 0) THEN EXECUTE STATEMENT ''';
              LSql := LSql + 'CREATE TABLE tarefas ( ';
                LSql := LSql + ' id INTEGER NOT NULL, ';
@@ -104,18 +106,19 @@ begin
          LSql := LSql + ' END ';
          SQL.Add(LSql);
          ExecSQL;
-
          SQL.Clear;
-         LSql := 'EXECUTE BLOCK AS ';
-         LSql := LSql + 'DECLARE VARIABLE trigger_existente INTEGER; ';
-         LSql := LSql + 'BEGIN ';
-         LSql := LSql + 'SELECT COUNT(*) FROM RDB$TRIGGERS WHERE RDB$TRIGGER_NAME = ''tr_id'' INTO ::trigger_existente;';
-         LSql := LSql + ' IF (trigger_existente = 0) THEN EXECUTE STATEMENT ''CREATE TRIGGER tr_id FOR tarefas ACTIVE BEFORE INSERT POSITION 0 AS BEGIN new.id = gen_id(gen_id, 1); END'';';
-         LSql := LSql + ' END ';
-         SQL.Add(LSql);
-         ExecSQL;
 
-         Connection.Commit;
+        LSql := 'EXECUTE BLOCK AS ';
+        LSql := LSql + 'DECLARE VARIABLE trigger_existente INTEGER; ';
+        LSql := LSql + 'BEGIN ';
+        LSql := LSql + 'SELECT COUNT(*) FROM RDB$TRIGGERS WHERE RDB$TRIGGER_NAME = ''TR_ID'' INTO :trigger_existente;';
+        LSql := LSql + ' IF (trigger_existente = 0) THEN ';
+        LSql := LSql + 'EXECUTE STATEMENT ''CREATE TRIGGER tr_id FOR tarefas ACTIVE BEFORE INSERT POSITION 0 AS BEGIN ';
+        LSql := LSql + 'IF (NEW.id IS NULL) THEN NEW.id = GEN_ID(gen_id, 1); END'';';
+        LSql := LSql + ' END';
+        SQL.Add(LSql);
+        ExecSQL;
+        Connection.Commit;
        except
          Connection.Rollback;
        end;

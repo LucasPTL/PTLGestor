@@ -16,7 +16,7 @@ object FormConfigConexao: TFormConfigConexao
     BevelOuter = bvNone
     ClientHeight = 200
     ClientWidth = 330
-    Color = 14666636
+    Color = clWhite
     Font.CharSet = ANSI_CHARSET
     Font.Color = clBlack
     Font.Name = 'Inter'
@@ -35,7 +35,7 @@ object FormConfigConexao: TFormConfigConexao
       BevelOuter = bvNone
       ClientHeight = 196
       ClientWidth = 326
-      Color = clWhite
+      Color = 1907997
       ParentColor = False
       TabOrder = 0
       object textBanco: TLabeledEdit
@@ -49,9 +49,9 @@ object FormConfigConexao: TFormConfigConexao
         EditLabel.Caption = 'Banco'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
-        EditLabel.Font.Color = clBlack
+        EditLabel.Font.Color = clWhite
         Font.CharSet = ANSI_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWhite
         Font.Name = 'Inter'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
@@ -69,9 +69,9 @@ object FormConfigConexao: TFormConfigConexao
         EditLabel.Caption = 'Porta'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
-        EditLabel.Font.Color = clBlack
+        EditLabel.Font.Color = clWhite
         Font.CharSet = ANSI_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWhite
         Font.Name = 'Inter'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
@@ -92,9 +92,9 @@ object FormConfigConexao: TFormConfigConexao
         EditLabel.Caption = 'Senha'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
-        EditLabel.Font.Color = clBlack
+        EditLabel.Font.Color = clWhite
         Font.CharSet = ANSI_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWhite
         Font.Name = 'Inter'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
@@ -111,7 +111,7 @@ object FormConfigConexao: TFormConfigConexao
         Caption = 'eye'
         Flat = True
         Font.CharSet = ANSI_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWhite
         Font.Name = 'Font Awesome 6 Free Solid'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
@@ -128,7 +128,7 @@ object FormConfigConexao: TFormConfigConexao
         Caption = 'list'
         Flat = True
         Font.CharSet = ANSI_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWhite
         Font.Name = 'Font Awesome 6 Free Solid'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
@@ -147,9 +147,9 @@ object FormConfigConexao: TFormConfigConexao
         EditLabel.Caption = 'Usuário'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
-        EditLabel.Font.Color = clBlack
+        EditLabel.Font.Color = clWhite
         Font.CharSet = ANSI_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWhite
         Font.Name = 'Inter'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
@@ -165,7 +165,7 @@ object FormConfigConexao: TFormConfigConexao
         Caption = 'Confirmar'
         Color = clBtnFace
         Font.CharSet = ANSI_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWhite
         Font.Name = 'Inter'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
@@ -180,7 +180,7 @@ object FormConfigConexao: TFormConfigConexao
         Width = 75
         Caption = 'Testar'
         Font.CharSet = ANSI_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWhite
         Font.Name = 'Inter'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft

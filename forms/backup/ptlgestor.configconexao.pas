@@ -100,8 +100,8 @@ begin
           IniConfig := TIniFile.Create(ExtractFilePath(ParamStr(0))+'configuracoes.ini');
           IniConfig.WriteString('Banco de dados', 'Database', DM.Conexao.Database);
           IniConfig.WriteString('Banco de dados', 'LibraryLocation', DM.Conexao.LibraryLocation);
-          IniConfig.WriteString('Banco de dados', 'User', DM.criptografar('061004',DM.Conexao.User));
-          IniConfig.WriteString('Banco de dados', 'Password', DM.criptografar('061004',DM.Conexao.Password));
+          IniConfig.WriteString('Banco de dados', 'User', DM.criptografar(key,DM.Conexao.User));
+          IniConfig.WriteString('Banco de dados', 'Password', DM.criptografar(key,DM.Conexao.Password));
           IniConfig.WriteString('Banco de dados', 'Port', IntToStr(DM.Conexao.Port));
           Self.Close;
         except

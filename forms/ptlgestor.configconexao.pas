@@ -111,6 +111,7 @@ begin
 
       finally
         IniConfig.Free;
+        DM.ConfigurarBanco;
       end;
     end;
   end;
