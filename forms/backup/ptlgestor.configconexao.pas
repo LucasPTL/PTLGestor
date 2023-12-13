@@ -74,6 +74,8 @@ end;
 
 procedure TFormConfigConexao.btnConfirmarClick(Sender: TObject);
 var
+  Form: TJanelaCustom;
+  Fechar: Boolean;
    IniConfig: TIniFile;
 begin
   labelErro.Caption:='';
@@ -108,9 +110,9 @@ begin
           on E: Exception do
            labelErro.Caption:='Erro ao salvar banco de dados: ' +  E.ClassName +  '/' +  E.Message;
         end;
-
       finally
         IniConfig.Free;
+        DM.ConfigurarBanco;
       end;
     end;
   end;

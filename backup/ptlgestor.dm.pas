@@ -96,13 +96,31 @@ begin
            LSql := LSql + 'SELECT COUNT(*) FROM RDB$RELATIONS WHERE RDB$RELATION_NAME = ''TAREFAS'' INTO ::tabela_existente; ';
            LSql := LSql + 'SELECT COUNT(*) FROM RDB$INDICES WHERE RDB$INDEX_NAME = ''IND_ID'' INTO ::indice_existente; ';
            LSql := LSql + ' IF (tabela_existente = 0) THEN EXECUTE STATEMENT ''';
-             LSql := LSql + 'CREATE TABLE tarefas ( ';
-               LSql := LSql + ' id INTEGER NOT NULL, ';
-               LSql := LSql + ' descricao VARCHAR(255), ';
-               LSql := LSql + ' data_exclusao TIMESTAMP, ';
-             LSql := LSql + ' PRIMARY KEY (id) ';
+             LSql := LSql + 'CREATE TABLE TAREFAS ( ';
+               LSql := LSql + ' ID INTEGER NOT NULL, ';
+               LSql := LSql + ' DESCRICAO VARCHAR(255), ';
+               LSql := LSql + ' DATA_EXCLUSAO TIMESTAMP, ';
+             LSql := LSql + ' PRIMARY KEY (ID) ';
              LSql := LSql + ')''; ';
-           LSql := LSql + ' IF (indice_existente = 0) THEN EXECUTE STATEMENT ''CREATE INDEX ind_id ON tarefas (id)''; ';
+           LSql := LSql + ' IF (indice_existente = 0) THEN EXECUTE STATEMENT ''CREATE INDEX ind_id ON TAREFAS (ID)''; ';
+         LSql := LSql + ' END ';
+         SQL.Add(LSql);
+         ExecSQL;
+         SQL.Clear;
+
+         LSql := 'EXECUTE BLOCK AS ';
+         LSql := LSql + 'DECLARE VARIABLE tabela_existente INTEGER; ';
+         LSql := LSql + 'BEGIN ';
+             LSql := LSql + 'SELECT COUNT(*) FROM RDB$RELATIONS WHERE RDB$RELATION_NAME = ''TAREFAS_ITENS'' INTO ::tabela_existente; ';
+             LSql := LSql + ' IF (tabela_existente = 0) THEN EXECUTE STATEMENT ''';
+             LSql := LSql + 'CREATE TABLE TAREFAS_ITENS ( ';
+               LSql := LSql + ' ID_LISTA INTEGER NOT NULL, ';
+               LSql := LSql + ' TITULO VARCHAR(255) NOT NULL, ';
+               LSql := LSql + ' DESCRICAO VARCHAR(255) NOT NULL, ';
+               LSql := LSql + ' DATA_CONCLUSAO TIMESTAMP, ';
+               LSql := LSql + ' DATA_EXCLUSAO TIMESTAMP, ';
+             LSql := LSql + ' PRIMARY KEY (ID) ';
+             LSql := LSql + ')''; ';
          LSql := LSql + ' END ';
          SQL.Add(LSql);
          ExecSQL;
@@ -111,13 +129,14 @@ begin
         LSql := 'EXECUTE BLOCK AS ';
         LSql := LSql + 'DECLARE VARIABLE trigger_existente INTEGER; ';
         LSql := LSql + 'BEGIN ';
-        LSql := LSql + 'SELECT COUNT(*) FROM RDB$TRIGGERS WHERE RDB$TRIGGER_NAME = ''TR_ID'' INTO :trigger_existente;';
+        LSql := LSql + 'SELECT COUNT(*) FROM RDB$TRIGGERS WHERE RDB$TRIGGER_NAME = ''TR_ID'' INTO ::trigger_existente;';
         LSql := LSql + ' IF (trigger_existente = 0) THEN ';
         LSql := LSql + 'EXECUTE STATEMENT ''CREATE TRIGGER tr_id FOR tarefas ACTIVE BEFORE INSERT POSITION 0 AS BEGIN ';
-        LSql := LSql + 'IF (NEW.id IS NULL) THEN NEW.id = GEN_ID(gen_id, 1); END'';';
+        LSql := LSql + 'IF (NEW.ID IS NULL) THEN NEW.ID = GEN_ID(GEN_ID, 1); END'';';
         LSql := LSql + ' END';
         SQL.Add(LSql);
         ExecSQL;
+
         Connection.Commit;
        except
          Connection.Rollback;

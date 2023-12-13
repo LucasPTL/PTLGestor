@@ -51,11 +51,12 @@ object FormConfigConexao: TFormConfigConexao
         EditLabel.ParentFont = False
         EditLabel.Font.Color = clWhite
         Font.CharSet = ANSI_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Name = 'Inter'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
         ParentFont = False
+        ReadOnly = True
         TabOrder = 0
       end
       object textPorta: TLabeledEdit
@@ -71,10 +72,11 @@ object FormConfigConexao: TFormConfigConexao
         EditLabel.ParentFont = False
         EditLabel.Font.Color = clWhite
         Font.CharSet = ANSI_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Name = 'Inter'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
+        MaxLength = 8
         ParentFont = False
         TabOrder = 3
         Text = '0'
@@ -94,10 +96,11 @@ object FormConfigConexao: TFormConfigConexao
         EditLabel.ParentFont = False
         EditLabel.Font.Color = clWhite
         Font.CharSet = ANSI_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Name = 'Inter'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
+        MaxLength = 50
         ParentFont = False
         PasswordChar = '*'
         TabOrder = 2
@@ -111,7 +114,7 @@ object FormConfigConexao: TFormConfigConexao
         Caption = 'eye'
         Flat = True
         Font.CharSet = ANSI_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlue
         Font.Name = 'Font Awesome 6 Free Solid'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
@@ -149,10 +152,11 @@ object FormConfigConexao: TFormConfigConexao
         EditLabel.ParentFont = False
         EditLabel.Font.Color = clWhite
         Font.CharSet = ANSI_CHARSET
-        Font.Color = clWhite
+        Font.Color = clBlack
         Font.Name = 'Inter'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
+        MaxLength = 50
         ParentFont = False
         TabOrder = 1
         Text = 'SYSDBA'

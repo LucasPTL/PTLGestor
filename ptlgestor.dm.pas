@@ -108,6 +108,24 @@ begin
          ExecSQL;
          SQL.Clear;
 
+         LSql := 'EXECUTE BLOCK AS ';
+         LSql := LSql + 'DECLARE VARIABLE tabela_existente INTEGER; ';
+         LSql := LSql + 'BEGIN ';
+             LSql := LSql + 'SELECT COUNT(*) FROM RDB$RELATIONS WHERE RDB$RELATION_NAME = ''TAREFAS_ITENS'' INTO ::tabela_existente; ';
+             LSql := LSql + ' IF (tabela_existente = 0) THEN EXECUTE STATEMENT ''';
+             LSql := LSql + 'CREATE TABLE TAREFAS_ITENS ( ';
+               LSql := LSql + ' ID_LISTA INTEGER NOT NULL, ';
+               LSql := LSql + ' TITULO VARCHAR(255) NOT NULL, ';
+               LSql := LSql + ' DESCRICAO VARCHAR(255) NOT NULL, ';
+               LSql := LSql + ' DATA_CONCLUSAO TIMESTAMP, ';
+               LSql := LSql + ' DATA_EXCLUSAO TIMESTAMP, ';
+             LSql := LSql + ' PRIMARY KEY (ID_LISTA), FOREIGN KEY (ID_LISTA) REFERENCES TAREFAS(ID) ';
+             LSql := LSql + ')''; ';
+         LSql := LSql + ' END ';
+         SQL.Add(LSql);
+         ExecSQL;
+         SQL.Clear;
+
         LSql := 'EXECUTE BLOCK AS ';
         LSql := LSql + 'DECLARE VARIABLE trigger_existente INTEGER; ';
         LSql := LSql + 'BEGIN ';
@@ -118,6 +136,7 @@ begin
         LSql := LSql + ' END';
         SQL.Add(LSql);
         ExecSQL;
+
         Connection.Commit;
        except
          Connection.Rollback;

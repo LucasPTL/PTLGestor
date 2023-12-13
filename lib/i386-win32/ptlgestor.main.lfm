@@ -6,6 +6,9 @@ object FormMain: TFormMain
   BorderStyle = bsNone
   ClientHeight = 600
   ClientWidth = 1300
+  OnPaint = FormPaint
+  OnResize = FormResize
+  OnShow = FormShow
   Position = poScreenCenter
   object panelTop: TPanel
     Left = 0
@@ -95,7 +98,7 @@ object FormMain: TFormMain
         ParentFont = False
       end
     end
-    object SpeedButton1: TSpeedButton
+    object btnAddLista: TSpeedButton
       Left = 8
       Height = 22
       Top = 5
@@ -109,6 +112,7 @@ object FormMain: TFormMain
       Font.Quality = fqDraft
       Font.Style = [fsBold]
       Transparent = False
+      OnClick = btnAddListaClick
       ParentFont = False
     end
   end
@@ -124,15 +128,29 @@ object FormMain: TFormMain
     Color = 1907997
     ParentColor = False
     TabOrder = 1
-    object ScrollBox1: TScrollBox
+    object scrollMain: TScrollBox
       Left = 0
-      Height = 532
-      Top = 0
+      Height = 482
+      Top = 50
       Width = 1300
       HorzScrollBar.Page = 1
+      HorzScrollBar.Visible = False
+      VertScrollBar.Increment = 10
       VertScrollBar.Page = 1
       Align = alClient
+      BorderStyle = bsNone
       TabOrder = 0
+    end
+    object panelConteudoTop: TPanel
+      Left = 0
+      Height = 50
+      Top = 0
+      Width = 1300
+      Align = alTop
+      BevelOuter = bvNone
+      Color = 7960953
+      ParentColor = False
+      TabOrder = 1
     end
   end
   object panelBottom: TPanel
@@ -155,16 +173,6 @@ object FormMain: TFormMain
     ParentColor = False
     ParentFont = False
     TabOrder = 2
-    object panelBotoesBarra1: TPanel
-      Left = 1264
-      Height = 34
-      Top = 0
-      Width = 0
-      Align = alRight
-      AutoSize = True
-      BevelOuter = bvNone
-      TabOrder = 0
-    end
     object btnConfigBanco: TSpeedButton
       Left = 1264
       Height = 34

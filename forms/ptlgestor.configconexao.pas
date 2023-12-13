@@ -108,7 +108,6 @@ begin
           on E: Exception do
            labelErro.Caption:='Erro ao salvar banco de dados: ' +  E.ClassName +  '/' +  E.Message;
         end;
-
       finally
         IniConfig.Free;
         DM.ConfigurarBanco;
