@@ -86,9 +86,17 @@
         <UnitName Value="ptlgestor.configConexao"/>
       </Unit>
       <Unit>
+        <Filename Value="forms\ptlgestor.criartarefa.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormCriarTarefa"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
         <Filename Value="forms\ptlgestor.criarlista.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FormCriarLista"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
     </Units>

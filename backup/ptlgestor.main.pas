@@ -6,18 +6,26 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, Buttons,
-  StdCtrls, ptlgestor.janelacustom, ptlgestor.configConexao,
-  ptlgestor.criarlista, ptlgestor.dm, ZDataset;
+  StdCtrls, ComCtrls, ptlgestor.janelacustom, ptlgestor.configConexao,
+  ptlgestor.criarlista, ptlgestor.criartarefa, ptlgestor.dm, ZDataset;
 
 type
 
   { TFormMain }
 
   TFormMain = class(TForm)
+    btnAddLista: TSpeedButton;
+    btnAddTarefa: TSpeedButton;
+    textCodigoTarefa: TEdit;
+    labelNomeTarefa: TLabel;
     labelAvisoConexao: TLabel;
-    panelConteudoTop: TPanel;
+    pageControlMain: TPageControl;
+    panelConteudoTopTarefas: TPanel;
+    panelListaTarefasMain: TPanel;
     panelConteudo: TPanel;
     panelBotoesBarra: TPanel;
+    panelConteudoTopListaTarefas: TPanel;
+    panelTarefasMain: TPanel;
     panelTop: TPanel;
     btnMinimizar: TSpeedButton;
     btnMaximizar: TSpeedButton;
@@ -25,8 +33,12 @@ type
     panelBottom: TPanel;
     btnConfigBanco: TSpeedButton;
     scrollMain: TScrollBox;
-    btnAddLista: TSpeedButton;
+    scrollMainTarefas: TScrollBox;
+    btnVoltar: TSpeedButton;
+    tabTarefas: TTabSheet;
+    tabListaTarefas: TTabSheet;
     timerVerificaConexao: TTimer;
+    procedure btnAddTarefaClick(Sender: TObject);
     procedure btnConfigBancoClick(Sender: TObject);
     procedure btnFecharClick(Sender: TObject);
     procedure btnMaximizarClick(Sender: TObject);
@@ -40,6 +52,7 @@ type
       Y: Integer);
     procedure panelTopMouseUp;
     procedure btnAddListaClick;
+    procedure btnVoltarClick(Sender: TObject);
     procedure timerVerificaConexaoTimer;
     procedure AtualizarListas;
   private
@@ -48,6 +61,8 @@ type
     procedure LimparListas;
     procedure ExcluirLista(Sender: TObject);
     procedure AlterarLista(Sender: TObject);
+    procedure CarregaListaTarefas(Sender: TObject);
+    procedure LimparTarefas;
   public
 
   end;
@@ -105,6 +120,23 @@ begin
   end;
 end;
 
+procedure TFormMain.btnAddTarefaClick(Sender: TObject);
+var
+  Form: TFormCriarTarefa;
+begin
+ if btnConfigBanco.Color <> clRed then
+ begin
+   try
+     Form := TFormCriarTarefa.Create(Self);
+     Form.IdLista := textCodigoTarefa.Text;
+     Form.ShowModal;
+   finally
+     Form.Free;
+     CarregaListaTarefas(Self);
+   end;
+ end;
+end;
+
 procedure TFormMain.btnMaximizarClick(Sender: TObject);
 begin
   if WindowState = wsMaximized then
@@ -127,6 +159,9 @@ procedure TFormMain.FormResize(Sender: TObject);
 begin
  scrollMain.BorderSpacing.Left:=Round(Self.Width*0.20);
  scrollMain.BorderSpacing.Right:=Round(Self.Width*0.20);
+
+ scrollMainTarefas.BorderSpacing.Left:=Round(Self.Width*0.20);
+ scrollMainTarefas.BorderSpacing.Right:=Round(Self.Width*0.20);
 end;
 
 procedure TFormMain.FormShow(Sender: TObject);
@@ -134,6 +169,9 @@ begin
  AtualizarListas;
  scrollMain.BorderSpacing.Left:=Round(Self.Width*0.20);
  scrollMain.BorderSpacing.Right:=Round(Self.Width*0.20);
+
+ scrollMainTarefas.BorderSpacing.Left:=Round(Self.Width*0.20);
+ scrollMainTarefas.BorderSpacing.Right:=Round(Self.Width*0.20);
 end;
 
 procedure TFormMain.panelTopMouseMove(Sender: TObject; Shift: TShiftState; X,
@@ -172,6 +210,11 @@ begin
  end;
 end;
 
+procedure TFormMain.btnVoltarClick(Sender: TObject);
+begin
+  pageControlMain.ActivePage := tabListaTarefas;
+end;
+
 procedure TFormMain.timerVerificaConexaoTimer;
 begin
  with timerVerificaConexao do
@@ -197,7 +240,8 @@ var
   LPanelLista,LPanelBotoes: TPanel;
 begin
   LimparListas;
-  LQuery:= TZQuery.Create(Self);
+  pageControlMain.ActivePage := tabListaTarefas;
+  LQuery := TZQuery.Create(Self);
   LQuery.Connection := DM.Conexao;
   LQuery.SQL.Add('select * from TAREFAS where data_exclusao is null');
   LQuery.Open;
@@ -236,7 +280,6 @@ begin
       Parent := LPanelBotoes;
       Align := alTop;
       Caption := 'print';
-      //OnClick:=@ExcluirLista;
       with Font do
       begin
         Name := 'Font Awesome 6 Free Solid';
@@ -266,6 +309,7 @@ begin
     begin
       Parent := LPanelLista;
       Align := alClient;
+      OnCLick := @CarregaListaTarefas;
       Caption := LQuery.FieldByName('descricao').AsString;
       with Font do
       begin
@@ -275,6 +319,7 @@ begin
     end;
     LQuery.Next;
   end;
+  LQuery.Free;
 
 end;
 
@@ -368,6 +413,87 @@ begin
   end;
 end;
 
+procedure TFormMain.CarregaListaTarefas(Sender: TObject);
+var
+  LQuery: TZQuery;
+  LPanelTarefa,LPanelBotoes: TPanel;
+  LIdLista:String;
+begin
+  if Assigned(TControl(Sender).Parent) then LIdLista := TControl(Sender).Parent.Hint;
+  if LIdLista = '' then LIdLista := textCodigoTarefa.Text;
+  LimparTarefas;
+  textCodigoTarefa.Text := LIdLista;
+  pageControlMain.ActivePage := tabTarefas;
+  labelNomeTarefa.Caption := TControl(Sender).Caption;
+  LQuery := TZQuery.Create(Self);
+  LQuery.Connection := DM.Conexao;
+  LQuery.SQL.Add('select * from TAREFAS_ITENS where DATA_EXCLUSAO is null and ID_LISTA = :pidlista');
+  LQuery.ParamByName('pidlista').AsString:=LIdLista;
+  LQuery.Open;
+  while not LQuery.EOF do
+  begin
+
+    LPanelTarefa := TPanel.Create(Self);
+    LPanelTarefa.Name := 'tarefa' + LQuery.FieldByName('id').AsString;
+    LPanelTarefa.Hint := LQuery.FieldByName('id').AsString;
+    LPanelTarefa.Parent := scrollMainTarefas;
+    LPanelTarefa.Align := alTop;
+    LPanelTarefa.Caption := LQuery.FieldByName('titulo').AsString + ': ' + LQuery.FieldByName('descricao').AsString;
+    LPanelTarefa.Color := clWhite;
+    LPanelTarefa.Font.Name := 'Inter';
+    LPanelTarefa.Font.Size := Round(LPanelTarefa.Width*0.028);
+    LPanelTarefa.Height := 100;
+    LPanelTarefa.BevelOuter := bvNone;
+    LPanelTarefa.Top:=9999;
+    LPanelBotoes := TPanel.Create(Self);
+    LPanelBotoes.BevelOuter := bvNone;
+    LPanelBotoes.Parent := LPanelTarefa;
+    LPanelBotoes.Align := alRight;
+    LPanelBotoes.Width := Round(panelBotoesBarra.Width);
+    LPanelBotoes.Hint := LQuery.FieldByName('id').AsString;
+
+
+    with TSpeedButton.Create(Self) do
+    begin
+      Parent := LPanelBotoes;
+      Align := alTop;
+      if LQuery.FieldByName('data_conclusao').AsString = '' then Caption := 'check' else Caption := 'xmark';
+      with Font do
+      begin
+        Name := 'Font Awesome 6 Free Solid';
+        Size := Round(LPanelBotoes.Width/5);
+        if LQuery.FieldByName('data_conclusao').AsString = '' then Color := clGreen else Color := clRed;
+      end;
+      Height:=Round(LPanelBotoes.Height/2);
+      Top := 9999;
+    end;
+    with TSpeedButton.Create(Self) do
+    begin
+      Parent := LPanelBotoes;
+      Align := alTop;
+      Caption := 'trash';
+      with Font do
+      begin
+        Name := 'Font Awesome 6 Free Solid';
+        Size := Round(LPanelBotoes.Width/5);
+        Color := clRed;
+      end;
+      Height:=Round(LPanelBotoes.Height/2);
+      Top := 9999;
+    end;
+    LQuery.Next;
+  end;
+  LQuery.Free;
+
+end;
+
+procedure TFormMain.LimparTarefas;
+var
+ i: Integer;
+begin
+ for i := scrollMainTarefas.ControlCount -1 downto 0 do
+   scrollMainTarefas.Controls[i].Free;
+end;
 
 end.
 

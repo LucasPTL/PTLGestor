@@ -90,6 +90,16 @@ begin
          SQL.Clear;
 
          LSql := 'EXECUTE BLOCK AS ';
+         LSql := LSql + 'DECLARE VARIABLE gerador_existente INTEGER; ';
+         LSql := LSql + 'BEGIN ';
+           LSql := LSql + 'SELECT COUNT(*) FROM RDB$GENERATORS WHERE RDB$GENERATOR_NAME = ''GEN_IDTAREFA'' INTO ::gerador_existente; ';
+           LSql := LSql + ' IF (gerador_existente = 0) THEN EXECUTE STATEMENT ''CREATE GENERATOR GEN_IDTAREFA''; ';
+         LSql := LSql + ' END';
+         SQL.Add(LSql);
+         ExecSQL;
+         SQL.Clear;
+
+         LSql := 'EXECUTE BLOCK AS ';
          LSql := LSql + 'DECLARE VARIABLE tabela_existente INTEGER; ';
          LSql := LSql + 'DECLARE VARIABLE indice_existente INTEGER; ';
          LSql := LSql + 'BEGIN ';
@@ -114,12 +124,13 @@ begin
              LSql := LSql + 'SELECT COUNT(*) FROM RDB$RELATIONS WHERE RDB$RELATION_NAME = ''TAREFAS_ITENS'' INTO ::tabela_existente; ';
              LSql := LSql + ' IF (tabela_existente = 0) THEN EXECUTE STATEMENT ''';
              LSql := LSql + 'CREATE TABLE TAREFAS_ITENS ( ';
+               LSql := LSql + ' ID INTEGER NOT NULL, ';
                LSql := LSql + ' ID_LISTA INTEGER NOT NULL, ';
                LSql := LSql + ' TITULO VARCHAR(255) NOT NULL, ';
                LSql := LSql + ' DESCRICAO VARCHAR(255) NOT NULL, ';
                LSql := LSql + ' DATA_CONCLUSAO TIMESTAMP, ';
                LSql := LSql + ' DATA_EXCLUSAO TIMESTAMP, ';
-             LSql := LSql + ' PRIMARY KEY (ID_LISTA), FOREIGN KEY (ID_LISTA) REFERENCES TAREFAS(ID) ';
+             LSql := LSql + ' PRIMARY KEY (ID), FOREIGN KEY (ID_LISTA) REFERENCES TAREFAS(ID) ';
              LSql := LSql + ')''; ';
          LSql := LSql + ' END ';
          SQL.Add(LSql);

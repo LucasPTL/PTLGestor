@@ -74,8 +74,6 @@ end;
 
 procedure TFormConfigConexao.btnConfirmarClick(Sender: TObject);
 var
-  Form: TJanelaCustom;
-  Fechar: Boolean;
    IniConfig: TIniFile;
 begin
   labelErro.Caption:='';

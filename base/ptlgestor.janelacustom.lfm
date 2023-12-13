@@ -63,6 +63,7 @@ object JanelaCustom: TJanelaCustom
           Font.Pitch = fpVariable
           Font.Quality = fqDraft
           Font.Style = [fsBold]
+          Layout = tlCenter
           ParentColor = False
           ParentFont = False
           OptimalFill = True
@@ -104,6 +105,7 @@ object JanelaCustom: TJanelaCustom
           Font.Pitch = fpVariable
           Font.Quality = fqDraft
           Font.Style = [fsBold]
+          Layout = tlCenter
           ParentColor = False
           ParentFont = False
           WordWrap = True
