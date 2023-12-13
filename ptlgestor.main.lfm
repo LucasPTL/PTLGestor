@@ -6,6 +6,9 @@ object FormMain: TFormMain
   BorderStyle = bsNone
   ClientHeight = 600
   ClientWidth = 1300
+  OnPaint = FormPaint
+  OnResize = FormResize
+  OnShow = FormShow
   Position = poScreenCenter
   object panelTop: TPanel
     Left = 0
@@ -17,7 +20,7 @@ object FormMain: TFormMain
     BevelOuter = bvNone
     ClientHeight = 34
     ClientWidth = 1300
-    Color = 14666636
+    Color = clBlack
     Font.CharSet = ANSI_CHARSET
     Font.Height = -16
     Font.Name = 'Font Awesome 6 Free Solid'
@@ -95,6 +98,23 @@ object FormMain: TFormMain
         ParentFont = False
       end
     end
+    object btnAddLista: TSpeedButton
+      Left = 8
+      Height = 22
+      Top = 5
+      Width = 216
+      Caption = 'Adicionar Lista de Tarefas'
+      Flat = True
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -16
+      Font.Name = 'Inter'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      Transparent = False
+      OnClick = btnAddListaClick
+      ParentFont = False
+    end
   end
   object panelConteudo: TPanel
     Left = 0
@@ -103,9 +123,35 @@ object FormMain: TFormMain
     Width = 1300
     Align = alClient
     BevelOuter = bvNone
-    Color = clWhite
+    ClientHeight = 532
+    ClientWidth = 1300
+    Color = 1907997
     ParentColor = False
     TabOrder = 1
+    object scrollMain: TScrollBox
+      Left = 0
+      Height = 482
+      Top = 50
+      Width = 1300
+      HorzScrollBar.Page = 1
+      HorzScrollBar.Visible = False
+      VertScrollBar.Increment = 10
+      VertScrollBar.Page = 1
+      Align = alClient
+      BorderStyle = bsNone
+      TabOrder = 0
+    end
+    object panelConteudoTop: TPanel
+      Left = 0
+      Height = 50
+      Top = 0
+      Width = 1300
+      Align = alTop
+      BevelOuter = bvNone
+      Color = 7960953
+      ParentColor = False
+      TabOrder = 1
+    end
   end
   object panelBottom: TPanel
     Left = 0
@@ -127,16 +173,6 @@ object FormMain: TFormMain
     ParentColor = False
     ParentFont = False
     TabOrder = 2
-    object panelBotoesBarra1: TPanel
-      Left = 1264
-      Height = 34
-      Top = 0
-      Width = 0
-      Align = alRight
-      AutoSize = True
-      BevelOuter = bvNone
-      TabOrder = 0
-    end
     object btnConfigBanco: TSpeedButton
       Left = 1264
       Height = 34
@@ -144,8 +180,33 @@ object FormMain: TFormMain
       Width = 36
       Align = alRight
       Caption = 'wifi'
+      Color = clRed
       Flat = True
+      Transparent = False
       OnClick = btnConfigBancoClick
     end
+    object labelAvisoConexao: TLabel
+      Left = 0
+      Height = 34
+      Top = 0
+      Width = 1264
+      Align = alClient
+      Alignment = taCenter
+      Color = clBlack
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -16
+      Font.Name = 'Inter'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+    end
+  end
+  object timerVerificaConexao: TTimer
+    OnTimer = timerVerificaConexaoTimer
+    Left = 8
+    Top = 48
   end
 end

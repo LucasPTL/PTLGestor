@@ -10,8 +10,8 @@ uses
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, zplain, zparsesql, zdbc, zcore, zcomponent, PTLGestor.main, 
-ptlgestor.dm, ptlgestor.janelacustom, unit1
+  Forms, zcomponent, PTLGestor.main,
+  ptlgestor.dm, ptlgestor.criarlista
   { you can add units after this };
 
 {$R *.res}
@@ -22,6 +22,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TFormMain, FormMain);
+  Application.CreateForm(TFormCriarLista, FormCriarLista);
   Application.Run;
 end.
 

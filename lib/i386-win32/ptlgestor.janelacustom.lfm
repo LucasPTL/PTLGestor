@@ -1,34 +1,34 @@
 object JanelaCustom: TJanelaCustom
   Left = 1103
-  Height = 240
+  Height = 209
   Top = 31
   Width = 617
   Caption = 'JanelaCustom'
-  ClientHeight = 240
+  ClientHeight = 209
   ClientWidth = 617
   object panelFundo: TPanel
     Left = 0
-    Height = 240
+    Height = 209
     Top = 0
     Width = 617
     Align = alClient
     BevelOuter = bvNone
-    ClientHeight = 240
+    ClientHeight = 209
     ClientWidth = 617
-    Color = 14666636
+    Color = clWhite
     Font.Color = clNone
     ParentColor = False
     ParentFont = False
     TabOrder = 0
     object panelConteudo: TPanel
       Left = 2
-      Height = 236
+      Height = 205
       Top = 2
       Width = 613
       Align = alClient
       BorderSpacing.Around = 2
       BevelOuter = bvNone
-      ClientHeight = 236
+      ClientHeight = 205
       ClientWidth = 613
       Color = clWhite
       ParentColor = False
@@ -71,35 +71,35 @@ object JanelaCustom: TJanelaCustom
       object panelBottom: TPanel
         Left = 0
         Height = 50
-        Top = 186
+        Top = 155
         Width = 613
         Align = alBottom
         TabOrder = 1
       end
       object panelMid: TPanel
         Left = 0
-        Height = 136
+        Height = 105
         Top = 50
         Width = 613
         Align = alClient
         BevelOuter = bvNone
-        ClientHeight = 136
+        ClientHeight = 105
         ClientWidth = 613
-        Color = 14666636
+        Color = 1907997
         ParentColor = False
         TabOrder = 2
         object labelTexto: TLabel
           Left = 0
-          Height = 136
+          Height = 105
           Top = 0
           Width = 613
           Align = alClient
           Alignment = taCenter
           AutoSize = False
-          Caption = 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don''t look even slightly believable. If you are going to use a passage of Lorem Ipsum,'
+          Caption = 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don''t '
           Font.CharSet = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = 27
+          Font.Color = clWhite
+          Font.Height = 26
           Font.Name = 'Inter SemiBold'
           Font.Pitch = fpVariable
           Font.Quality = fqDraft
