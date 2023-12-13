@@ -23,6 +23,8 @@ type
     btnFechar: TSpeedButton;
     panelBottom: TPanel;
     btnConfigBanco: TSpeedButton;
+    ScrollBox1: TScrollBox;
+    SpeedButton1: TSpeedButton;
     timerVerificaConexao: TTimer;
     procedure btnConfigBancoClick(Sender: TObject);
     procedure btnFecharClick(Sender: TObject);

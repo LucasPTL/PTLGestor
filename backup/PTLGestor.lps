@@ -10,7 +10,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="4"/>
         <CursorPos X="15" Y="14"/>
-        <UsageCount Value="30"/>
+        <UsageCount Value="34"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -20,9 +20,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="PTLGestor.main"/>
-        <TopLine Value="13"/>
-        <CursorPos X="11" Y="5"/>
-        <UsageCount Value="30"/>
+        <TopLine Value="120"/>
+        <CursorPos X="6" Y="149"/>
+        <UsageCount Value="34"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -33,10 +33,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="103"/>
-        <CursorPos X="18" Y="116"/>
-        <UsageCount Value="30"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="78"/>
+        <CursorPos X="98" Y="96"/>
+        <UsageCount Value="34"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -46,9 +46,9 @@
         <ComponentName Value="JanelaCustom"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="1"/>
         <CursorPos X="14" Y="55"/>
-        <UsageCount Value="28"/>
+        <UsageCount Value="32"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -60,151 +60,151 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ptlgestor.configConexao"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="52"/>
-        <CursorPos X="33" Y="133"/>
-        <UsageCount Value="25"/>
+        <TopLine Value="86"/>
+        <CursorPos X="27" Y="114"/>
+        <UsageCount Value="29"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="D:\Users\Peratelli\Downloads\src\core\ZExprParser.pas"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
       <Unit>
         <Filename Value="C:\fpcupdeluxe\fpcsrc\packages\cairo\src\cairoft.pp"/>
         <UnitName Value="CairoFT"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
       </Unit>
       <Unit>
         <Filename Value="base\ptlgestor.funcoes.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos Y="13"/>
-        <UsageCount Value="21"/>
+        <UsageCount Value="20"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="78" TopLine="60"/>
+        <Caret Line="111" TopLine="84"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="80" TopLine="60"/>
+        <Caret Line="112" TopLine="85"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="81" TopLine="60"/>
+        <Caret Line="113" TopLine="86"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="82" TopLine="60"/>
+        <Caret Line="114" TopLine="87"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="83" TopLine="60"/>
+        <Caret Line="115" TopLine="88"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="84" TopLine="60"/>
+        <Caret Line="116" TopLine="89"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="85" TopLine="60"/>
+        <Caret Line="118" TopLine="91"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="86" TopLine="60"/>
+        <Caret Line="77" TopLine="60"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="87" TopLine="60"/>
+        <Caret Line="76" TopLine="60"/>
+      </Position>
+      <Position>
+        <Filename Value="forms\ptlgestor.configconexao.pas"/>
+        <Caret Line="52" Column="40" TopLine="52"/>
+      </Position>
+      <Position>
+        <Filename Value="ptlgestor.main.pas"/>
+        <Caret Line="18" Column="19" TopLine="13"/>
+      </Position>
+      <Position>
+        <Filename Value="ptlgestor.main.pas"/>
+        <Caret Line="148" Column="6" TopLine="119"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="88" TopLine="60"/>
+        <Caret Line="121" Column="20" TopLine="101"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="90" TopLine="62"/>
+        <Caret Line="82" TopLine="75"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="91" TopLine="63"/>
+        <Caret Line="83" TopLine="75"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="92" TopLine="64"/>
+        <Caret Line="84" TopLine="75"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="93" TopLine="65"/>
+        <Caret Line="85" TopLine="75"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="94" TopLine="66"/>
+        <Caret Line="86" TopLine="75"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="95" TopLine="67"/>
+        <Caret Line="87" TopLine="75"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="96" TopLine="68"/>
+        <Caret Line="88" TopLine="75"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="97" TopLine="69"/>
+        <Caret Line="89" TopLine="75"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="98" TopLine="71"/>
+        <Caret Line="92" Column="33" TopLine="77"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="99" TopLine="72"/>
+        <Caret Line="90" Column="42" TopLine="76"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="100" TopLine="73"/>
+        <Caret Line="83" TopLine="76"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="101" TopLine="74"/>
+        <Caret Line="84" TopLine="76"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="102" TopLine="90"/>
+        <Caret Line="85" TopLine="76"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="103" TopLine="90"/>
+        <Caret Line="86" TopLine="76"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="104" TopLine="90"/>
+        <Caret Line="87" TopLine="76"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="105" TopLine="90"/>
+        <Caret Line="88" TopLine="76"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="106" TopLine="90"/>
-      </Position>
-      <Position>
-        <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="116" TopLine="90"/>
-      </Position>
-      <Position>
-        <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="117" TopLine="90"/>
-      </Position>
-      <Position>
-        <Filename Value="ptlgestor.dm.pas"/>
-        <Caret Line="108" Column="20" TopLine="103"/>
+        <Caret Line="98" Column="36" TopLine="91"/>
       </Position>
     </JumpHistory>
     <RunParams>
@@ -226,7 +226,7 @@
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
         <Source Value="ptlgestor.dm.pas"/>
-        <Line Value="77"/>
+        <Line Value="82"/>
       </Item>
     </BreakPoints>
   </Debugging>

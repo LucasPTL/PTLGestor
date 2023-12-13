@@ -17,7 +17,7 @@ object FormMain: TFormMain
     BevelOuter = bvNone
     ClientHeight = 34
     ClientWidth = 1300
-    Color = 14666636
+    Color = clBlack
     Font.CharSet = ANSI_CHARSET
     Font.Height = -16
     Font.Name = 'Font Awesome 6 Free Solid'
@@ -103,9 +103,21 @@ object FormMain: TFormMain
     Width = 1300
     Align = alClient
     BevelOuter = bvNone
-    Color = clWhite
+    ClientHeight = 532
+    ClientWidth = 1300
+    Color = 1907997
     ParentColor = False
     TabOrder = 1
+    object ScrollBox1: TScrollBox
+      Left = 0
+      Height = 532
+      Top = 0
+      Width = 1300
+      HorzScrollBar.Page = 1
+      VertScrollBar.Page = 1
+      Align = alClient
+      TabOrder = 0
+    end
   end
   object panelBottom: TPanel
     Left = 0
@@ -156,6 +168,7 @@ object FormMain: TFormMain
       Width = 1264
       Align = alClient
       Alignment = taCenter
+      Color = clBlack
       Font.CharSet = ANSI_CHARSET
       Font.Height = -16
       Font.Name = 'Inter'
@@ -164,6 +177,7 @@ object FormMain: TFormMain
       Font.Style = [fsBold]
       ParentColor = False
       ParentFont = False
+      Transparent = False
     end
   end
   object timerVerificaConexao: TTimer

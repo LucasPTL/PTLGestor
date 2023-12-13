@@ -15,7 +15,7 @@ object JanelaCustom: TJanelaCustom
     BevelOuter = bvNone
     ClientHeight = 209
     ClientWidth = 617
-    Color = 14666636
+    Color = clWhite
     Font.Color = clNone
     ParentColor = False
     ParentFont = False
@@ -85,7 +85,7 @@ object JanelaCustom: TJanelaCustom
         BevelOuter = bvNone
         ClientHeight = 105
         ClientWidth = 613
-        Color = 14666636
+        Color = 1907997
         ParentColor = False
         TabOrder = 2
         object labelTexto: TLabel
@@ -98,7 +98,7 @@ object JanelaCustom: TJanelaCustom
           AutoSize = False
           Caption = 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don''t '
           Font.CharSet = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWhite
           Font.Height = 26
           Font.Name = 'Inter SemiBold'
           Font.Pitch = fpVariable

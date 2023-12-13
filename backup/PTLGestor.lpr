@@ -11,7 +11,7 @@ uses
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, zcomponent, PTLGestor.main,
-ptlgestor.dm, ptlgestor.configConexao
+  ptlgestor.dm
   { you can add units after this };
 
 {$R *.res}

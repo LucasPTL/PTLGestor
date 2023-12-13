@@ -23,6 +23,7 @@ type
     btnFechar: TSpeedButton;
     panelBottom: TPanel;
     btnConfigBanco: TSpeedButton;
+    ScrollBox1: TScrollBox;
     timerVerificaConexao: TTimer;
     procedure btnConfigBancoClick(Sender: TObject);
     procedure btnFecharClick(Sender: TObject);
@@ -34,7 +35,6 @@ type
       Y: Integer);
     procedure panelTopMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
-    procedure timerVerificaConexaoStartTimer(Sender: TObject);
     procedure timerVerificaConexaoTimer(Sender: TObject);
   private
     FMouseDown: Boolean;
@@ -145,6 +145,12 @@ begin
      labelAvisoConexao.Caption:='Verificar conexão.';
    end;
    Enabled:=True;
+ end;
+ with TPanel.Create(Self) do
+ begin
+    Parent:=ScrollBox1;
+    Align:=alTop;
+    Height:=200;
  end;
 end;
 
