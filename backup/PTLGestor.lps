@@ -8,9 +8,9 @@
       <Unit>
         <Filename Value="PTLGestor.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="5"/>
-        <CursorPos X="15" Y="14"/>
-        <UsageCount Value="38"/>
+        <EditorIndex Value="6"/>
+        <CursorPos X="37" Y="14"/>
+        <UsageCount Value="40"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -20,9 +20,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="PTLGestor.main"/>
-        <TopLine Value="341"/>
-        <CursorPos X="3" Y="358"/>
-        <UsageCount Value="38"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="460"/>
+        <CursorPos X="96" Y="471"/>
+        <UsageCount Value="40"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -32,10 +33,10 @@
         <ComponentName Value="DM"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
-        <EditorIndex Value="3"/>
-        <TopLine Value="102"/>
-        <CursorPos X="10" Y="114"/>
-        <UsageCount Value="38"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="90"/>
+        <CursorPos X="110" Y="96"/>
+        <UsageCount Value="40"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -46,8 +47,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="14" Y="55"/>
-        <UsageCount Value="36"/>
+        <CursorPos X="10" Y="9"/>
+        <UsageCount Value="38"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -58,10 +59,23 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ptlgestor.configConexao"/>
-        <EditorIndex Value="4"/>
-        <TopLine Value="71"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="90"/>
         <CursorPos X="12" Y="107"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="35"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="forms\ptlgestor.criartarefa.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormCriarTarefa"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="45"/>
+        <CursorPos X="160" Y="60"/>
+        <UsageCount Value="26"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -84,15 +98,22 @@
         <UsageCount Value="20"/>
       </Unit>
       <Unit>
+        <Filename Value="forms\ptlgestor.gerenciarlista.pas"/>
+        <ComponentName Value="FormGerenciarLista"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ptlgestor.gerenciarLista"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="22" Y="9"/>
+        <UsageCount Value="21"/>
+      </Unit>
+      <Unit>
         <Filename Value="forms\ptlgestor.criarlista.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FormCriarLista"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="73"/>
-        <CursorPos X="7" Y="94"/>
-        <UsageCount Value="24"/>
+        <EditorIndex Value="3"/>
+        <UsageCount Value="21"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -100,123 +121,123 @@
     <JumpHistory HistoryIndex="29">
       <Position>
         <Filename Value="ptlgestor.main.pas"/>
-        <Caret Line="39" Column="32" TopLine="23"/>
+        <Caret Line="393" TopLine="384"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.main.pas"/>
-        <Caret Line="38" Column="30" TopLine="24"/>
+        <Caret Line="394" TopLine="384"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.main.pas"/>
-        <Caret Line="53" Column="34" TopLine="29"/>
+        <Caret Line="389" Column="15" TopLine="384"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.main.pas"/>
-        <Caret Line="38" Column="30" TopLine="21"/>
+        <Caret Line="390" Column="15" TopLine="385"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.main.pas"/>
-        <Caret Line="39" Column="31" TopLine="23"/>
+        <Caret Line="389" Column="15" TopLine="384"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.main.pas"/>
-        <Caret Line="31" Column="34" TopLine="24"/>
+        <Caret Line="390" Column="15" TopLine="385"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.main.pas"/>
-        <Caret Line="46" Column="22" TopLine="25"/>
-      </Position>
-      <Position>
-        <Filename Value="forms\ptlgestor.criarlista.pas"/>
-        <Caret Line="68" Column="14" TopLine="41"/>
-      </Position>
-      <Position>
-        <Filename Value="forms\ptlgestor.criarlista.pas"/>
-        <Caret Line="70" Column="14" TopLine="43"/>
-      </Position>
-      <Position>
-        <Filename Value="forms\ptlgestor.criarlista.pas"/>
-        <Caret Line="82" Column="6" TopLine="53"/>
-      </Position>
-      <Position>
-        <Filename Value="forms\ptlgestor.criarlista.pas"/>
-        <Caret Line="78" Column="5" TopLine="48"/>
+        <Caret Line="389" Column="15" TopLine="384"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.main.pas"/>
-        <Caret Line="47" Column="27" TopLine="35"/>
-      </Position>
-      <Position>
-        <Filename Value="forms\ptlgestor.criarlista.pas"/>
-        <Caret Line="84" Column="5" TopLine="51"/>
-      </Position>
-      <Position>
-        <Filename Value="forms\ptlgestor.criarlista.pas"/>
-        <Caret Line="56" Column="31" TopLine="50"/>
-      </Position>
-      <Position>
-        <Filename Value="forms\ptlgestor.criarlista.pas"/>
-        <Caret Line="55" Column="59" TopLine="45"/>
+        <Caret Line="390" Column="15" TopLine="385"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.main.pas"/>
-        <Caret Line="278" Column="11" TopLine="258"/>
+        <Caret Line="391" Column="15" TopLine="386"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.main.pas"/>
-        <Caret Line="228" Column="24" TopLine="226"/>
+        <Caret Line="183" Column="2" TopLine="179"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.main.pas"/>
-        <Caret Line="127" Column="3" TopLine="118"/>
+        <Caret Line="120" Column="3" TopLine="118"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.main.pas"/>
-        <Caret Line="121" TopLine="118"/>
+        <Caret Line="152" Column="2" TopLine="150"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.main.pas"/>
-        <Caret Line="134" Column="63" TopLine="119"/>
+        <Caret Line="53" Column="15" TopLine="37"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.main.pas"/>
-        <Caret Line="136" Column="2" TopLine="119"/>
+        <Caret Line="204" Column="43" TopLine="198"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.main.pas"/>
-        <Caret Line="137" Column="2" TopLine="120"/>
+        <Caret Line="218" Column="19" TopLine="212"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.main.pas"/>
-        <Caret Line="360" TopLine="341"/>
+        <Caret Line="225" Column="19" TopLine="219"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.main.pas"/>
-        <Caret Line="371" Column="79" TopLine="341"/>
+        <Caret Line="200" Column="48" TopLine="198"/>
+      </Position>
+      <Position>
+        <Filename Value="forms\ptlgestor.criartarefa.pas"/>
+        <Caret Line="68" Column="16" TopLine="53"/>
+      </Position>
+      <Position>
+        <Filename Value="forms\ptlgestor.criartarefa.pas"/>
+        <Caret Line="69" Column="16" TopLine="54"/>
+      </Position>
+      <Position>
+        <Filename Value="forms\ptlgestor.criartarefa.pas"/>
+        <Caret Line="70" Column="16" TopLine="55"/>
+      </Position>
+      <Position>
+        <Filename Value="forms\ptlgestor.criartarefa.pas"/>
+        <Caret Line="71" Column="16" TopLine="56"/>
+      </Position>
+      <Position>
+        <Filename Value="forms\ptlgestor.criartarefa.pas"/>
+        <Caret Line="35" Column="60" TopLine="8"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.main.pas"/>
-        <Caret Line="362" TopLine="341"/>
+        <Caret Line="410" Column="54" TopLine="386"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.main.pas"/>
-        <Caret Line="372" Column="94" TopLine="341"/>
+        <Caret Line="183" TopLine="182"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.main.pas"/>
-        <Caret Line="364" TopLine="341"/>
+        <Caret Line="129" Column="22" TopLine="117"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.main.pas"/>
-        <Caret Line="373" Column="146" TopLine="341"/>
+        <Caret Line="349" Column="18" TopLine="344"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.main.pas"/>
-        <Caret Line="368" Column="24" TopLine="341"/>
+        <Caret Line="432" Column="17" TopLine="384"/>
       </Position>
       <Position>
         <Filename Value="ptlgestor.main.pas"/>
-        <Caret Line="358" Column="3" TopLine="341"/>
+        <Caret Line="134" Column="25" TopLine="122"/>
+      </Position>
+      <Position>
+        <Filename Value="forms\ptlgestor.criartarefa.pas"/>
+        <Caret Line="60" Column="160" TopLine="45"/>
+      </Position>
+      <Position>
+        <Filename Value="ptlgestor.main.pas"/>
+        <Caret Line="421" Column="49" TopLine="404"/>
       </Position>
     </JumpHistory>
     <RunParams>
@@ -232,20 +253,6 @@
         <WatchKind Value="wpkWrite"/>
         <Source Value="base\ptlgestor.janelacustom.pas"/>
         <Line Value="1"/>
-      </Item>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="ptlgestor.main.pas"/>
-        <Line Value="123"/>
-      </Item>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="ptlgestor.main.pas"/>
-        <Line Value="360"/>
       </Item>
     </BreakPoints>
   </Debugging>

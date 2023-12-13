@@ -82,7 +82,6 @@ begin
        end;
      end;
   end;
-  if Assigned(LQuery) then LQuery.Free;
 end;
 
 

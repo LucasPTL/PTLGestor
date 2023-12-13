@@ -62,6 +62,7 @@ object FormCriarLista: TFormCriarLista
           Font.Name = 'Inter'
           Font.Pitch = fpVariable
           Font.Quality = fqDraft
+          Layout = tlCenter
           ParentColor = False
           ParentFont = False
           WordWrap = True

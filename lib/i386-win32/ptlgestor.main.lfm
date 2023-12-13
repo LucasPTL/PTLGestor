@@ -98,23 +98,6 @@ object FormMain: TFormMain
         ParentFont = False
       end
     end
-    object btnAddLista: TSpeedButton
-      Left = 8
-      Height = 22
-      Top = 5
-      Width = 216
-      Caption = 'Adicionar Lista de Tarefas'
-      Flat = True
-      Font.CharSet = ANSI_CHARSET
-      Font.Height = -16
-      Font.Name = 'Inter'
-      Font.Pitch = fpVariable
-      Font.Quality = fqDraft
-      Font.Style = [fsBold]
-      Transparent = False
-      OnClick = btnAddListaClick
-      ParentFont = False
-    end
   end
   object panelConteudo: TPanel
     Left = 0
@@ -128,29 +111,188 @@ object FormMain: TFormMain
     Color = 1907997
     ParentColor = False
     TabOrder = 1
-    object scrollMain: TScrollBox
+    object pageControlMain: TPageControl
       Left = 0
-      Height = 482
-      Top = 50
-      Width = 1300
-      HorzScrollBar.Page = 1
-      HorzScrollBar.Visible = False
-      VertScrollBar.Increment = 10
-      VertScrollBar.Page = 1
-      Align = alClient
-      BorderStyle = bsNone
-      TabOrder = 0
-    end
-    object panelConteudoTop: TPanel
-      Left = 0
-      Height = 50
+      Height = 532
       Top = 0
       Width = 1300
-      Align = alTop
-      BevelOuter = bvNone
-      Color = 7960953
-      ParentColor = False
-      TabOrder = 1
+      ActivePage = tabTarefas
+      Align = alClient
+      ShowTabs = False
+      TabIndex = 1
+      TabOrder = 0
+      TabPosition = tpBottom
+      object tabListaTarefas: TTabSheet
+        ClientHeight = 524
+        ClientWidth = 1292
+        TabVisible = False
+        object panelListaTarefasMain: TPanel
+          Left = 0
+          Height = 524
+          Top = 0
+          Width = 1292
+          Align = alClient
+          BevelOuter = bvNone
+          ClientHeight = 524
+          ClientWidth = 1292
+          ParentBackground = False
+          TabOrder = 0
+          object scrollMain: TScrollBox
+            Left = 0
+            Height = 474
+            Top = 50
+            Width = 1292
+            HorzScrollBar.Page = 1
+            HorzScrollBar.Visible = False
+            VertScrollBar.Increment = 10
+            VertScrollBar.Page = 1
+            Align = alClient
+            BorderStyle = bsNone
+            TabOrder = 0
+          end
+          object panelConteudoTopListaTarefas: TPanel
+            Left = 0
+            Height = 50
+            Top = 0
+            Width = 1292
+            Align = alTop
+            BevelOuter = bvNone
+            ClientHeight = 50
+            ClientWidth = 1292
+            Color = 7960953
+            ParentBackground = False
+            ParentColor = False
+            TabOrder = 1
+            object btnAddLista: TSpeedButton
+              Left = 8
+              Height = 22
+              Top = 14
+              Width = 216
+              Caption = 'Adicionar Lista de Tarefas'
+              Flat = True
+              Font.CharSet = ANSI_CHARSET
+              Font.Height = -16
+              Font.Name = 'Inter'
+              Font.Pitch = fpVariable
+              Font.Quality = fqDraft
+              Font.Style = [fsBold]
+              Transparent = False
+              OnClick = btnAddListaClick
+              ParentFont = False
+            end
+          end
+        end
+      end
+      object tabTarefas: TTabSheet
+        ClientHeight = 524
+        ClientWidth = 1292
+        object panelTarefasMain: TPanel
+          Left = 0
+          Height = 524
+          Top = 0
+          Width = 1292
+          Align = alClient
+          BevelOuter = bvNone
+          ClientHeight = 524
+          ClientWidth = 1292
+          ParentBackground = False
+          TabOrder = 0
+          object scrollMainTarefas: TScrollBox
+            Left = 0
+            Height = 474
+            Top = 50
+            Width = 1292
+            HorzScrollBar.Page = 1
+            HorzScrollBar.Visible = False
+            VertScrollBar.Increment = 10
+            VertScrollBar.Page = 1
+            Align = alClient
+            BorderStyle = bsNone
+            TabOrder = 0
+          end
+          object panelConteudoTopTarefas: TPanel
+            Left = 0
+            Height = 50
+            Top = 0
+            Width = 1292
+            Align = alTop
+            BevelOuter = bvNone
+            ClientHeight = 50
+            ClientWidth = 1292
+            Color = 7960953
+            ParentBackground = False
+            ParentColor = False
+            TabOrder = 1
+            object btnAddTarefa: TSpeedButton
+              Left = 72
+              Height = 22
+              Top = 14
+              Width = 216
+              Caption = 'Adicionar Tarefa'
+              Flat = True
+              Font.CharSet = ANSI_CHARSET
+              Font.Height = -16
+              Font.Name = 'Inter'
+              Font.Pitch = fpVariable
+              Font.Quality = fqDraft
+              Font.Style = [fsBold]
+              Transparent = False
+              OnClick = btnAddTarefaClick
+              ParentFont = False
+            end
+            object btnVoltar: TSpeedButton
+              Left = 0
+              Height = 50
+              Top = 0
+              Width = 48
+              Align = alLeft
+              Caption = 'arrow-left'
+              Color = clGreen
+              Flat = True
+              Font.CharSet = ANSI_CHARSET
+              Font.Height = -19
+              Font.Name = 'Font Awesome 6 Free Solid'
+              Font.Pitch = fpVariable
+              Font.Quality = fqDraft
+              Font.Style = [fsBold]
+              Transparent = False
+              OnClick = btnVoltarClick
+              ParentFont = False
+            end
+            object labelNomeTarefa: TLabel
+              Left = 290
+              Height = 50
+              Top = 0
+              Width = 1002
+              Align = alRight
+              Anchors = [akTop, akLeft, akRight, akBottom]
+              AutoSize = False
+              Caption = 'LoremIpsum'
+              Font.CharSet = ANSI_CHARSET
+              Font.Color = clWhite
+              Font.Height = 50
+              Font.Name = 'Inter'
+              Font.Pitch = fpVariable
+              Font.Quality = fqDraft
+              Font.Style = [fsBold]
+              Layout = tlCenter
+              ParentColor = False
+              ParentFont = False
+              WordWrap = True
+              OptimalFill = True
+            end
+            object textCodigoTarefa: TEdit
+              Left = 392
+              Height = 23
+              Top = 8
+              Width = 80
+              TabOrder = 0
+              Text = 'textCodigoTarefa'
+              Visible = False
+            end
+          end
+        end
+      end
     end
   end
   object panelBottom: TPanel
@@ -207,6 +349,6 @@ object FormMain: TFormMain
   object timerVerificaConexao: TTimer
     OnTimer = timerVerificaConexaoTimer
     Left = 8
-    Top = 48
+    Top = 8
   end
 end

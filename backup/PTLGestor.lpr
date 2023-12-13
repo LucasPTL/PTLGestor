@@ -11,8 +11,7 @@ uses
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, zcomponent, PTLGestor.main,
-  ptlgestor.dm, ptlgestor.criarlista
-  { you can add units after this };
+  ptlgestor.dm;
 
 {$R *.res}
 
@@ -22,7 +21,6 @@ begin
   Application.Initialize;
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TFormMain, FormMain);
-  Application.CreateForm(TFormCriarLista, FormCriarLista);
   Application.Run;
 end.
 

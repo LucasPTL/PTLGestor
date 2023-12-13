@@ -1,0 +1,9 @@
+object FormGerenciarLista: TFormGerenciarLista
+  Left = 1103
+  Height = 240
+  Top = 31
+  Width = 320
+  BorderStyle = bsNone
+  Position = poMainFormCenter
+  LCLVersion = '2.2.6.0'
+end
