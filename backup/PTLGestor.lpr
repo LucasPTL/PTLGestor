@@ -11,7 +11,8 @@ uses
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, zcomponent, PTLGestor.main,
-  ptlgestor.dm;
+  ptlgestor.dm, ptlgestor.criarlista, ptlgestor.controllers.listatarefas,
+ptlgestor.controllers.tarefas, ptlgestor.model.tarefas;
 
 {$R *.res}
 

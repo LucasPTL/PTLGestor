@@ -3,11 +3,12 @@ object FormCriarTarefa: TFormCriarTarefa
   Height = 300
   Top = 31
   Width = 423
-  BorderStyle = bsNone
+  BorderStyle = bsDialog
   ClientHeight = 300
   ClientWidth = 423
   OnShow = FormShow
   Position = poMainFormCenter
+  LCLVersion = '2.2.6.0'
   object panelFundo: TPanel
     Left = 0
     Height = 300
@@ -165,7 +166,13 @@ object FormCriarTarefa: TFormCriarTarefa
           ButtonWidth = 23
           NumGlyphs = 1
           Flat = True
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Name = 'Inter'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
           MaxLength = 10
+          ParentFont = False
           TabOrder = 2
           Text = '  /  /    '
         end
@@ -176,6 +183,25 @@ object FormCriarTarefa: TFormCriarTarefa
           Width = 105
           Caption = 'Data de conclusão'
           ParentColor = False
+        end
+        object btnNullData: TSpeedButton
+          Left = 120
+          Height = 22
+          Top = 121
+          Width = 23
+          Caption = 'X'
+          Color = 1907997
+          Flat = True
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clRed
+          Font.Height = -13
+          Font.Name = 'Font Awesome 6 Free Solid'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Font.Style = [fsBold]
+          Transparent = False
+          OnClick = btnNullDataClick
+          ParentFont = False
         end
       end
     end
