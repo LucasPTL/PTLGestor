@@ -16,10 +16,11 @@ type
     private
       FIdLista: String;
       FscrollMainTarefas: TWinControl;
-      procedure LimparTarefas;
+
     public
       property IdLista: String read FIdLista write FIdLista;
       property scrollMainTarefas: TWinControl read FscrollMainTarefas write FscrollMainTarefas;
+
       procedure AlterarTarefas(Sender: TObject);
       function CarregaTarefas: TPanel;
       procedure ExcluirTarefas(Sender: TObject);
@@ -63,7 +64,7 @@ begin
     LPanelBotoes.BevelOuter := bvNone;
     LPanelBotoes.Parent := LPanelTarefa;
     LPanelBotoes.Align := alRight;
-    LPanelBotoes.Width := 70;
+    LPanelBotoes.Width := 150;
     LPanelBotoes.Hint := LQuery.FieldByName('id').AsString;
 
     with TSpeedButton.Create(Nil) do
