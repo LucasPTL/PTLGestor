@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, Buttons,
-  StdCtrls, EditBtn, ptlgestor.dm, ZDataset;
+  StdCtrls, EditBtn, ptlgestor.dm, ptlgestor.controllers.tarefas, ZDataset;
 
 type
 
@@ -17,6 +17,7 @@ type
     dateConclusao: TDateEdit;
     labelData: TLabel;
     labelTitulo: TLabel;
+    btnNullData: TSpeedButton;
     textDescTarefa: TLabeledEdit;
     panelBottom: TPanel;
     panelConteudo: TPanel;
@@ -25,14 +26,17 @@ type
     panelTop: TPanel;
     textTituloTarefa: TLabeledEdit;
     procedure btnConfirmarClick(Sender: TObject);
+    procedure btnNullDataClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
     FIdLista: String;
     FIdTarefa: String;
+    FOk: Boolean;
 
   public
     property IdLista:String read FIdLista write FIdLista;
     property IdTarefa:String read FIdTarefa write FIdTarefa;
+    property Ok:Boolean read FOk write FOk;
   end;
 
 var
@@ -47,45 +51,30 @@ implementation
 procedure TFormCriarTarefa.btnConfirmarClick(Sender: TObject);
 var
   LQuery: TZQuery;
+  LTarefa: TControllerTarefas;
 begin
    if (textDescTarefa.Text <> '') and (textTituloTarefa.Text <> '') then
    begin
      try
-       LQuery := TZQuery.Create(Self);
-       LQuery.Connection := DM.Conexao;
-       LQuery.SQL.Clear;
-       DM.Conexao.StartTransaction;
-       if FIdTarefa = '' then
-       begin
-          LQuery.SQL.Add('INSERT INTO TAREFAS_ITENS (ID, ID_LISTA, TITULO, DESCRICAO, DATA_CONCLUSAO, DATA_EXCLUSAO) VALUES(GEN_ID(GEN_IDTAREFA, 1), :pidlista, :ptitulo, :pdesc, :pdataconclusao, NULL)');
-          LQuery.ParamByName('pidlista').AsString := FIdLista;
-       end
-       else
-       begin
-          LQuery.SQL.Add('UPDATE TAREFAS_ITENS SET TITULO = :ptitulo, DESCRICAO = :pdesc, DATA_CONCLUSAO = :pdataconclusao where ID = :pidtarefa');
-          LQuery.ParamByName('pidtarefa').AsString := FIdTarefa;
-       end;
-       LQuery.ParamByName('ptitulo').AsString := textTituloTarefa.Text;
-       LQuery.ParamByName('pdesc').AsString := textDescTarefa.Text;
-       LQuery.ParamByName('pdataconclusao').AsDate := dateConclusao.Date;
-       LQuery.ExecSQL;
-       LQuery.Free;
-       DM.Conexao.Commit;
+       LTarefa := TControllerTarefas.Create;
+       LTarefa.IdLista := FIdLista;
+       Ok := LTarefa.Gravar('',Trim(textTituloTarefa.Text),Trim(textDescTarefa.Text),dateConclusao.Date) = '';
+     finally
+       LTarefa.Free;
        Self.Close;
-     except
-       on E: Exception do
-       begin
-         ShowMessage('Erro ao criar tarefa: ' +  E.ClassName +  '/' +  E.Message);
-         DM.Conexao.Rollback;
-       end;
      end;
   end;
+end;
+
+procedure TFormCriarTarefa.btnNullDataClick(Sender: TObject);
+begin
+  dateConclusao.Date:=NullDate;
 end;
 
 
 procedure TFormCriarTarefa.FormShow(Sender: TObject);
 begin
-  if FIdLista <> '' then
+  if FIdTarefa <> '' then
   begin
     with TZQuery.Create(Self) do
     begin

@@ -3,11 +3,12 @@ object FormCriarLista: TFormCriarLista
   Height = 200
   Top = 31
   Width = 423
-  BorderStyle = bsNone
+  BorderStyle = bsDialog
   ClientHeight = 200
   ClientWidth = 423
   OnShow = FormShow
   Position = poMainFormCenter
+  LCLVersion = '2.2.6.0'
   object panelFundo: TPanel
     Left = 0
     Height = 200
@@ -62,6 +63,7 @@ object FormCriarLista: TFormCriarLista
           Font.Name = 'Inter'
           Font.Pitch = fpVariable
           Font.Quality = fqDraft
+          Layout = tlCenter
           ParentColor = False
           ParentFont = False
           WordWrap = True

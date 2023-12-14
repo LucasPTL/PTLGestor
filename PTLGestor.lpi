@@ -86,9 +86,9 @@
         <UnitName Value="ptlgestor.configConexao"/>
       </Unit>
       <Unit>
-        <Filename Value="forms\ptlgestor.criartarefa.pas"/>
+        <Filename Value="forms\ptlgestor.alterartarefa.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="FormCriarTarefa"/>
+        <ComponentName Value="FormAlterarTarefa"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
@@ -96,6 +96,29 @@
         <Filename Value="forms\ptlgestor.criarlista.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FormCriarLista"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
+        <Filename Value="models\ptlgestor.model.listatarefas.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="controllers\ptlgestor.controllers.listatarefas.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="controllers\ptlgestor.controllers.tarefas.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="models\ptlgestor.model.tarefas.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="forms\ptlgestor.criartarefa.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FormCriarTarefa"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
@@ -109,7 +132,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="base;forms"/>
+      <OtherUnitFiles Value="base;forms;models;controllers"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
