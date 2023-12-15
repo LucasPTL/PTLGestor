@@ -51,14 +51,9 @@ type
     procedure panelTopMouseMove(Sender: TObject; Shift: TShiftState; X,
       Y: Integer);
     procedure panelTopMouseUp;
-    procedure btnAddListaClick;
+    procedure btnAddListaClick(Sender: TObject);
     procedure btnVoltarClick(Sender: TObject);
     procedure timerVerificaConexaoTimer;
-
-    procedure AtualizarListasTarefas;
-    procedure LimparListasTarefas;
-    procedure AlterarListaTarefas(Sender: TObject);
-    procedure ExcluirLista(Sender: TObject);
 
     procedure CarregaTarefas(Sender: TObject);
   private
@@ -131,6 +126,7 @@ begin
    try
      Form := TFormCriarTarefa.Create(Self);
      Form.IdLista := textCodigoTarefa.Text;
+     Form.scrollMainTarefas := scrollMainTarefas;
      Form.Ok := False;
      Form.ShowModal;
    finally
@@ -163,8 +159,22 @@ begin
 end;
 
 procedure TFormMain.FormShow(Sender: TObject);
+var
+  LListaTarefas: TControllerListaTarefas;
 begin
- AtualizarListasTarefas;
+ try
+   LListaTarefas := TControllerListaTarefas.Create;
+   LListaTarefas.pageControlMain := pageControlMain;
+   LListaTarefas.tabListaTarefas := tabListaTarefas;
+   LListaTarefas.tabTarefas := tabTarefas;
+   LListaTarefas.scrollMain := scrollMain;
+   LListaTarefas.scrollMainTarefas := scrollMainTarefas;
+   LListaTarefas.labelLista := labelNomeTarefa;
+   LListaTarefas.TextCodigoLista := textCodigoTarefa;
+   LListaTarefas.AtualizarListasTarefas;
+ finally
+   //LListaTarefas.Free;
+ end;
  scrollMain.BorderSpacing.Left:=Round(Self.Width*0.20);
  scrollMain.BorderSpacing.Right:=Round(Self.Width*0.20);
 
@@ -191,7 +201,7 @@ begin
  FMouseDown := False;
 end;
 
-procedure TFormMain.btnAddListaClick;
+procedure TFormMain.btnAddListaClick(Sender: TObject);
 var
   Form: TFormCriarLista;
 begin
@@ -199,11 +209,18 @@ begin
  begin
    try
      Form := TFormCriarLista.Create(Self);
+     Form.pageControlMain := pageControlMain;
+     Form.tabListaTarefas := tabListaTarefas;
+     Form.tabTarefas := tabTarefas;
+     Form.scrollMain := scrollMain;
+     Form.scrollMainTarefas := scrollMainTarefas;
+     Form.labelLista := labelNomeTarefa;
+     Form.TextCodigoLista := textCodigoTarefa;
      Form.labelTitulo.Caption:='Criação de lista';
      Form.ShowModal;
    finally
-     Form.Free;
-     AtualizarListasTarefas;
+     //Form.Free;  <------- Limpando referencia dos controles usado
+
    end;
  end;
 end;
@@ -230,169 +247,6 @@ begin
    end;
    Enabled:=True;
  end;
-end;
-
-procedure TFormMain.AtualizarListasTarefas;
-var
-  LQuery: TZQuery;
-  LPanelLista,LPanelBotoes: TPanel;
-begin
-  LimparListasTarefas;
-  pageControlMain.ActivePage := tabListaTarefas;
-  LQuery := TZQuery.Create(Self);
-  LQuery.Connection := DM.Conexao;
-  LQuery.SQL.Add('select * from TAREFAS where data_exclusao is null');
-  LQuery.Open;
-  while not LQuery.EOF do
-  begin
-    LPanelLista := TPanel.Create(Self);
-    LPanelLista.Name := 'lista'+LQuery.FieldByName('id').AsString;
-    LPanelLista.Hint := LQuery.FieldByName('id').AsString;
-    LPanelLista.Parent := scrollMain;
-    LPanelLista.Align := alTop;
-    LPanelLista.BorderSpacing.Top := 10;
-    LPanelLista.Height := 100;
-    LPanelLista.BevelOuter := bvNone;
-    LPanelLista.Top:=9999;
-    LPanelBotoes := TPanel.Create(Self);
-    LPanelBotoes.BevelOuter := bvNone;
-    LPanelBotoes.Parent := LPanelLista;
-    LPanelBotoes.Align := alRight;
-    LPanelBotoes.Width := Round(panelBotoesBarra.Width);
-    LPanelBotoes.Hint := LQuery.FieldByName('id').AsString;
-
-    with TSpeedButton.Create(Self) do
-    begin
-      Parent := LPanelBotoes;
-      Align := alTop;
-      Caption := 'pen';
-      OnClick:=@AlterarListaTarefas;
-      Flat:=True;
-      Transparent:=False;
-      with Font do
-      begin
-        Name := 'Font Awesome 6 Free Solid';
-        Size := Round(LPanelBotoes.Width/7);
-      end;
-      Height:=Round(LPanelBotoes.Height/3);
-    end;
-    with TSpeedButton.Create(Self) do
-    begin
-      Parent := LPanelBotoes;
-      Align := alTop;
-      Caption := 'print';
-      Flat:=True;
-      Transparent:=False;
-      with Font do
-      begin
-        Name := 'Font Awesome 6 Free Solid';
-        Size := Round(LPanelBotoes.Width/7);
-        Color := clBlue;
-      end;
-      Height:=Round(LPanelBotoes.Height/3);
-      Top := 9999;
-    end;
-    with TSpeedButton.Create(Self) do
-    begin
-      Parent := LPanelBotoes;
-      Align := alTop;
-      Caption := 'trash';
-      OnClick := @ExcluirLista;
-      Flat:=True;
-      Transparent:=False;
-      with Font do
-      begin
-        Name := 'Font Awesome 6 Free Solid';
-        Size := Round(LPanelBotoes.Width/7);
-        Color := clRed;
-      end;
-      Height:=Round(LPanelBotoes.Height/3);
-      Top := 9999;
-    end;
-
-    with TSpeedButton.Create(Self) do
-    begin
-      Parent := LPanelLista;
-      Align := alClient;
-      OnCLick := @CarregaTarefas;
-      Caption := LQuery.FieldByName('descricao').AsString;
-      with Font do
-      begin
-        Name := 'Inter';
-        Size := Round(LPanelLista.Height/6);
-      end;
-    end;
-    LQuery.Next;
-  end;
-  LQuery.Free;
-end;
-
-procedure TFormMain.LimparListasTarefas;
-var
- i: Integer;
-begin
- for i := scrollMain.ControlCount -1 downto 0 do
-   scrollMain.Controls[i].Free;
-end;
-
-procedure TFormMain.ExcluirLista(Sender: TObject);
-var
- Form: TJanelaCustom;
- Fechar: Boolean;
- LIdLista, Retorno: String;
- LLista: TControllerListaTarefas;
-begin
- LIdLista := TControl(Sender).Parent.Hint;
- try
-   Form:= TJanelaCustom.Create(Self);
-   Form.BorderStyle := bsNone;
-   Form.Position := poMainFormCenter;
-   Form.labelTitulo.Caption := 'Deseja realmente excluir a lista?';
-   with TZQuery.Create(Self) do
-   begin
-     Connection := DM.Conexao;
-     SQL.Add('SELECT DESCRICAO FROM TAREFAS WHERE ID = :pidlista');
-     ParamByName('pidlista').AsString:=LIdLista;
-     Open;
-     Form.labelTexto.Caption:='A Lista '+ FieldByName('descricao').AsString + ' será excluida.';
-     Free;
-   end;
-   Form.AddBotao('Cancelar',False);
-   Form.AddBotao('Excluir',True);
-   Form.ShowModal;
- finally
-   Form.Free;
-   Fechar:=Form.Retorno;
- end;
- if Fechar then
- begin
-   try
-     LLista := TControllerListaTarefas.Create;
-     Retorno := LLista.Excluir(LIdLista);
-     if Retorno <> '' then ShowMessage(Retorno);
-   finally
-     LLista.Free;
-   end;
-   AtualizarListasTarefas;
- end;
-end;
-
-procedure TFormMain.AlterarListaTarefas(Sender: TObject);
-var
-  LIdLista:String;
-  Form: TFormCriarLista;
-begin
-  LIdLista := TControl(Sender).Parent.Hint;
-  try
-    Form := TFormCriarLista.Create(Self);
-    Form.Ok := False;
-    Form.labelTitulo.Caption:='Alteração de lista: ' + LIdLista;
-    Form.IdLista:=LIdLista;
-    Form.ShowModal;
-  finally
-    Form.Free;
-    if Form.Ok then AtualizarListasTarefas;
-  end;
 end;
 
 procedure TFormMain.CarregaTarefas(Sender: TObject);

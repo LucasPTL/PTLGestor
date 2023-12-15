@@ -32,11 +32,13 @@ type
     FIdLista: String;
     FIdTarefa: String;
     FOk: Boolean;
+    FscrollMainTarefas: TWinControl;
 
   public
     property IdLista:String read FIdLista write FIdLista;
     property IdTarefa:String read FIdTarefa write FIdTarefa;
     property Ok:Boolean read FOk write FOk;
+    property scrollMainTarefas: TWinControl read FscrollMainTarefas write FscrollMainTarefas;
   end;
 
 var
@@ -58,6 +60,7 @@ begin
      try
        LTarefa := TControllerTarefas.Create;
        LTarefa.IdLista := FIdLista;
+       LTarefa.scrollMainTarefas := scrollMainTarefas;
        Ok := LTarefa.Gravar('',Trim(textTituloTarefa.Text),Trim(textDescTarefa.Text),dateConclusao.Date) = '';
      finally
        LTarefa.Free;

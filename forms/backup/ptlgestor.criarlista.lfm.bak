@@ -56,7 +56,7 @@ object FormCriarLista: TFormCriarLista
           Align = alClient
           Alignment = taCenter
           AutoSize = False
-          Caption = 'Lorem Ipsum'
+          Caption = 'Criar Lista'
           Font.CharSet = ANSI_CHARSET
           Font.Color = clWhite
           Font.Height = 50

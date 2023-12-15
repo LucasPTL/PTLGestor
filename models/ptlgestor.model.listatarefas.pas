@@ -75,23 +75,34 @@ begin
   Retorno := '';
   LQuery := TZQuery.Create(Nil);
   LQuery.Connection := DM.Conexao;
-  LQuery.SQL.Clear;
-  try
-    try
-      DM.Conexao.StartTransaction;
-      LQuery.SQL.Add('update TAREFAS set DATA_EXCLUSAO = CURRENT_TIMESTAMP WHERE ID = :pidlista');
-      LQuery.ParamByName('pidlista').AsString:=FIdLista;
-      LQuery.ExecSQL;
-      DM.Conexao.Commit;
-    except
-      on E: Exception do
-      begin
-        Retorno :='Erro ao excluir lista: ' +  E.ClassName +  '/' +  E.Message;
-        DM.Conexao.Rollback;
-      end;
-    end;
-  finally
+  LQuery.SQL.Add('SELECT * FROM TAREFAS_ITENS WHERE ID_LISTA = :pidlista and DATA_EXCLUSAO is null');
+  LQuery.ParamByName('pidlista').AsString := FIdLista;
+  LQuery.Open;
+  if not LQuery.eof then
+  begin
+    Retorno :='Lista contém tarefas, impossível exclusão.';
     LQuery.Free;
+  end
+  else
+  begin
+    LQuery.SQL.Clear;
+    try
+      try
+        DM.Conexao.StartTransaction;
+        LQuery.SQL.Add('update TAREFAS set DATA_EXCLUSAO = CURRENT_TIMESTAMP WHERE ID = :pidlista');
+        LQuery.ParamByName('pidlista').AsString:=FIdLista;
+        LQuery.ExecSQL;
+        DM.Conexao.Commit;
+      except
+        on E: Exception do
+        begin
+          Retorno :='Erro ao excluir lista: ' +  E.ClassName +  '/' +  E.Message;
+          DM.Conexao.Rollback;
+        end;
+      end;
+    finally
+      LQuery.Free;
+    end;
   end;
 end;
 
