@@ -126,6 +126,7 @@ begin
    try
      Form := TFormCriarTarefa.Create(Self);
      Form.IdLista := textCodigoTarefa.Text;
+     Form.scrollMainTarefas := scrollMainTarefas;
      Form.Ok := False;
      Form.ShowModal;
    finally
@@ -165,8 +166,11 @@ begin
    LListaTarefas := TControllerListaTarefas.Create;
    LListaTarefas.pageControlMain := pageControlMain;
    LListaTarefas.tabListaTarefas := tabListaTarefas;
+   LListaTarefas.tabTarefas := tabTarefas;
    LListaTarefas.scrollMain := scrollMain;
    LListaTarefas.scrollMainTarefas := scrollMainTarefas;
+   LListaTarefas.labelLista := labelNomeTarefa;
+   LListaTarefas.TextCodigoLista := textCodigoTarefa;
    LListaTarefas.AtualizarListasTarefas;
  finally
    //LListaTarefas.Free;
@@ -207,12 +211,16 @@ begin
      Form := TFormCriarLista.Create(Self);
      Form.pageControlMain := pageControlMain;
      Form.tabListaTarefas := tabListaTarefas;
+     Form.tabTarefas := tabTarefas;
      Form.scrollMain := scrollMain;
      Form.scrollMainTarefas := scrollMainTarefas;
+     Form.labelLista := labelNomeTarefa;
+     Form.TextCodigoLista := textCodigoTarefa;
      Form.labelTitulo.Caption:='Criação de lista';
      Form.ShowModal;
    finally
-     Form.Free;
+     //Form.Free;  <------- Limpando referencia dos controles usado
+
    end;
  end;
 end;

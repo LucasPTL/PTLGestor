@@ -36,7 +36,7 @@ begin
     LQuery.Connection := DM.Conexao;
     LQuery.SQL.Add('SELECT * FROM TAREFAS WHERE Lower(DESCRICAO) = :pdesc and ID <> :pidlista and DATA_EXCLUSAO is null');
     LQuery.ParamByName('pidlista').AsString := FIdLista;
-    LQuery.ParamByName('pdesc').AsString := FDescLista;
+    LQuery.ParamByName('pdesc').AsString := LowerCase(FDescLista);
     LQuery.Open;
     if not LQuery.eof then
     begin
@@ -75,23 +75,37 @@ begin
   Retorno := '';
   LQuery := TZQuery.Create(Nil);
   LQuery.Connection := DM.Conexao;
-  LQuery.SQL.Clear;
-  try
-    try
-      DM.Conexao.StartTransaction;
-      LQuery.SQL.Add('update TAREFAS set DATA_EXCLUSAO = CURRENT_TIMESTAMP WHERE ID = :pidlista');
-      LQuery.ParamByName('pidlista').AsString:=FIdLista;
-      LQuery.ExecSQL;
-      DM.Conexao.Commit;
-    except
-      on E: Exception do
-      begin
-        Retorno :='Erro ao excluir lista: ' +  E.ClassName +  '/' +  E.Message;
-        DM.Conexao.Rollback;
-      end;
-    end;
-  finally
+  LQuery := TZQuery.Create(Nil);
+  LQuery.Connection := DM.Conexao;
+  LQuery.SQL.Add('SELECT * FROM TAREFAS WHERE Lower(DESCRICAO) = :pdesc and ID <> :pidlista and DATA_EXCLUSAO is null');
+  LQuery.ParamByName('pidlista').AsString := FIdLista;
+  LQuery.ParamByName('pdesc').AsString := LowerCase(FDescLista);
+  LQuery.Open;
+  if not LQuery.eof then
+  begin
+    Retorno :='Nome de lista já em uso.';
     LQuery.Free;
+  end
+  else
+  begin
+    LQuery.SQL.Clear;
+      try
+        try
+          DM.Conexao.StartTransaction;
+          LQuery.SQL.Add('update TAREFAS set DATA_EXCLUSAO = CURRENT_TIMESTAMP WHERE ID = :pidlista');
+          LQuery.ParamByName('pidlista').AsString:=FIdLista;
+          LQuery.ExecSQL;
+          DM.Conexao.Commit;
+        except
+          on E: Exception do
+          begin
+            Retorno :='Erro ao excluir lista: ' +  E.ClassName +  '/' +  E.Message;
+            DM.Conexao.Rollback;
+          end;
+        end;
+      finally
+        LQuery.Free;
+      end;
   end;
 end;
 

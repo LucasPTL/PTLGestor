@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, Buttons,
-  StdCtrls, ptlgestor.dm, ptlgestor.controllers.listatarefas, ZDataset;
+  StdCtrls, ComCtrls, ptlgestor.dm, ptlgestor.controllers.listatarefas,
+  ZDataset;
 
 type
 
@@ -25,11 +26,13 @@ type
     procedure FormShow(Sender: TObject);
   private
     FIdLista: String;
+    FLabelLista: TLabel;
     FOk: Boolean;
     FPageControlMain: TPageControl;
     FscrollMain: TWinControl;
     FscrollMainTarefas: TWinControl;
     FTabListaTarefas: TTabSheet;
+    FTextCodigoLista: TEdit;
 
   public
     property IdLista:String read FIdLista write FIdLista;
@@ -39,6 +42,8 @@ type
     property tabListaTarefas: TTabSheet read FTabListaTarefas write FTabListaTarefas;
     property scrollMain: TWinControl read FscrollMain write FscrollMain;
     property scrollMainTarefas: TWinControl read FscrollMainTarefas write FscrollMainTarefas;
+    property TextCodigoLista: TEdit read FTextCodigoLista write FTextCodigoLista;
+    property labelLista: TLabel read FLabelLista write FLabelLista;
   end;
 
 var
@@ -64,10 +69,12 @@ begin
        LLista.tabListaTarefas := tabListaTarefas;
        LLista.scrollMain := scrollMain;
        LLista.scrollMainTarefas := scrollMainTarefas;
+       LLista.TextCodigoLista := TextCodigoLista;
+       LLista.labelLista := labelLista;
        Retorno := LLista.Gravar(FIdLista,Trim(textDescLista.Text));
        if Retorno <> '' then ShowMessage(Retorno) else Ok := True;
      finally
-       LLista.Free;
+       //LLista.Free; <------- Limpando referencia dos controles usado
        Self.Close;
      end;
   end;
