@@ -19,6 +19,8 @@
   uma lista, marcar uma Tarefa como concluída, etc.
 
 ## Utilização do Sistema
+  O primeiro passo é a configuração do banco, onde, no canto inferior direito do sistema, existe um botão com o símbolo de conexão, onde, caso esteja vermelho, a conexão está inválida, e apitará um erro na parte inferior do sistema. Ao clicar no botão, a configuração é simples, somente sendo necessário redirecionar o arquivo FDB do banco, onde o usuário e a senha estão definidas a padrão do windows para o firebird, podendo alterar, caso seja de sua escolha outra senha/usuário. Ao clicar em testar e depois em confirmar, a sua conexão com o banco estará feita. 
+
   A primeira tela é a tela inicial, aonde se tem um botão onde sepode adicionar uma nova tarefa, ao clicar, abre-se a tela de criação, aonde é solicitado uma descrição para a lista, não é possível ter duas listas com nome siguais.
   Ao criar uma lista, pode se edita-la, aplicando os mesmos critérios e utilizações da tela de criação. Pode-se gerar um relatório contendo todas as listas, aonde será exibido em uma tabela criada via html no seu navegador padrão, outra opção é a exclusão, aonde só é   
   permitida quando não se tem tarefas cadastradas na lista.
