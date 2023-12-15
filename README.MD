@@ -27,4 +27,4 @@
   Na lista de tarefas, se tem os botões de Editar e Exclusão, aonde o Editar segue o mesmo padrão do criar, e a exclusão é feita sem restrições. 
   Caso a tarefa contenha data de conclusão, a exibição será verde, caso contrária, padrão (branco).
   
-Desenvolvido por Lucas Honorio Peratelli.
+## Desenvolvido por Lucas Honorio Peratelli.
